@@ -87,7 +87,8 @@ export default function RootLayout({
         suppressHydrationWarning
       >
         {children}
-        <script async defer src="https://stats.wateraday.com/latest.js"></script>
+        <script async src="https://stats.wateraday.com/latest.js"></script>
+        <script async src="https://stats.wateraday.com/auto-events.js"></script>
         <noscript>
           <Image
             src="https://stats.wateraday.com/noscript.gif?collect-dnt=true"
