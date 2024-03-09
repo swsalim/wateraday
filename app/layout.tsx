@@ -81,6 +81,11 @@ export default function RootLayout({
             __html: `window.sa_event=window.sa_event||function(){var a=[].slice.call(arguments);window.sa_event.q?window.sa_event.q.push(a):window.sa_event.q=[a]};`,
           }}
         />
+        <Script
+          src="https://beamanalytics.b-cdn.net/beam.min.js"
+          data-token="c2fbac7b-0b09-48f0-b925-7a5a61de2a3b"
+          async
+        />
       </head>
       <body
         className="flex min-h-screen flex-col bg-slate-50 font-sans"
