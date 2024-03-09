@@ -73,9 +73,7 @@ export default function RootLayout({
       className={cn('antialiased', GeistSans.variable, fontHeading.variable)}
     >
       <head>
-        <link rel="preconnect" href="//airtable.com" />
         <link rel="preconnect" href="//ik.imagekit.io" />
-        <link rel="dns-prefetch" href="//airtable.com" />
         <link rel="dns-prefetch" href="//ik.imagekit.io" />
         <Script
           id="simple-analytics"
