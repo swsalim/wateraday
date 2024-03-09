@@ -52,7 +52,7 @@ export function MainNav({ items }: MainNavProps) {
           }}
         >
           <Logo />
-          <span className="font-heading hidden tracking-wide text-slate-900 sm:inline-block">
+          <span className="hidden font-heading tracking-wide text-stone-900 sm:inline-block">
             {siteConfig.siteName}
           </span>
         </motion.div>
@@ -64,10 +64,10 @@ export function MainNav({ items }: MainNavProps) {
               key={index}
               href={item.disabled ? '#' : item.href}
               className={cn(
-                'font-heading relative px-4 py-2 text-base tracking-wide transition-colors hover:text-slate-900/80 sm:text-base',
+                'relative px-4 py-2 font-heading text-base tracking-wide transition-colors hover:text-stone-900/80 sm:text-base',
                 item.href.startsWith(`/${segment}`)
-                  ? 'text-slate-900'
-                  : 'text-slate-900/70',
+                  ? 'text-stone-900'
+                  : 'text-stone-900/70',
                 item.disabled && 'cursor-not-allowed opacity-80'
               )}
               onMouseEnter={() => setHoveredIndex(index)}

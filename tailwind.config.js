@@ -21,8 +21,8 @@ const config = {
         reveal: 'reveal 0.7s ease-in-out',
       },
       fontFamily: {
-        sans: ['var(--font-geist-sans)', ...defaultTheme.fontFamily.sans],
-        heading: ['var(--font-heading)', ...defaultTheme.fontFamily.sans],
+        sans: ['var(--font-geist-sans)'],
+        heading: ['var(--font-heading)'],
       },
       keyframes: {
         reveal: {
@@ -111,6 +111,7 @@ const config = {
             marginBottom: theme('spacing.10'),
           },
           p: {
+            fontSize: theme('fontSize.lg')[0],
             marginTop: theme('spacing.2'),
             marginBottom: theme('spacing.2'),
 
