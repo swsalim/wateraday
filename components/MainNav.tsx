@@ -26,7 +26,7 @@ export function MainNav({ items }: MainNavProps) {
     >
       <Link href="/">
         <motion.div
-          className="flex items-center gap-2"
+          className="flex items-center gap-1"
           initial={{ opacity: 0, y: '0.5rem' }}
           animate={{
             opacity: 1,
