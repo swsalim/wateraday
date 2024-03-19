@@ -17,6 +17,14 @@ const config = {
         '2xl': '1400px',
         '3xl': '2000px',
       },
+      borderWidth: {
+        1: '1px',
+      },
+      colors: {
+        background: 'hsl(var(--background) / <alpha-value>)',
+        foreground: 'hsl(var(--foreground) / <alpha-value>)',
+        primary: 'hsl(var(--primary) / <alpha-value>)',
+      },
       animation: {
         reveal: 'reveal 0.7s ease-in-out',
       },
@@ -64,7 +72,7 @@ const config = {
       DEFAULT: {
         css: {
           '--tw-prose-body': theme('colors.zinc.600'),
-          '--tw-prose-headings': theme('colors.zinc.900'),
+          '--tw-prose-headings': theme('colors.foreground / 1'),
           '--tw-prose-links': theme('colors.rose.500'),
           '--tw-prose-links-hover': theme('colors.rose.600'),
           '--tw-prose-underline': theme('colors.rose.500 / 0.2'),
@@ -193,6 +201,9 @@ const config = {
           },
           ':is(h2, h3) + *': {
             marginTop: 0,
+          },
+          'p + ul, p + ol': {
+            marginTop: `-${theme('spacing.4')}`,
           },
 
           // Inline elements
