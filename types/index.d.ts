@@ -1,3 +1,5 @@
+export type IconProps = React.HTMLAttributes<SVGElement>
+
 export type NavItem = {
   title: string
   href: string
