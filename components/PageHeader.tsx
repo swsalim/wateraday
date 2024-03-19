@@ -1,12 +1,15 @@
+import React from 'react'
 import Balancer from 'react-wrap-balancer'
 
 import { cn } from '@/lib/utils'
 
 export function PageHeader({
+  tag = 'h1',
   title,
   intro,
   className,
 }: {
+  tag?: React.ElementType
   title: string
   intro: string
   className: string
@@ -14,8 +17,8 @@ export function PageHeader({
   return (
     <header className={cn('max-w-5xl', className)}>
       <Balancer
-        as="h1"
-        className="font-heading text-4xl tracking-tight text-stone-800 [word-spacing:4px] sm:text-5xl"
+        as={tag}
+        className="text-foreground font-heading text-4xl tracking-tight [word-spacing:4px] sm:text-5xl"
       >
         {title}
       </Balancer>
