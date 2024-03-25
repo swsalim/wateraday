@@ -203,7 +203,11 @@ const config = {
             marginTop: 0,
           },
           'p + ul, p + ol': {
-            marginTop: `-${theme('spacing.4')}`,
+            marginTop: 0,
+
+            '@screen md': {
+              marginTop: `-${theme('spacing.4')}`,
+            },
           },
 
           // Inline elements

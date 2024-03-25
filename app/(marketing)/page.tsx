@@ -18,7 +18,7 @@ export default async function Home() {
     <div className="container px-4 md:px-8">
       <div className="my-20">
         <PageHeader
-          title="Find out Your Daily Water Intake"
+          title="How Much Water Should You Drink Daily?"
           intro="Calculate Your Optimal Daily Hydration Needs in Seconds"
           className="mx-auto text-center"
         />
@@ -26,8 +26,10 @@ export default async function Home() {
           <WaterIntakeCalculator />
         </div>
       </div>
-      <article className="prose">
-        <h2 className="capitalize">How Much Water Should You Drink Daily?</h2>
+      <article className="prose mx-auto max-w-3xl">
+        <h2 className="capitalize">
+          Are you drinking enough water to stay hydrated?
+        </h2>
         <p>
           Water is essential for maintaining the balance of bodily fluids. It
           helps to regulate body temperature, lubricate joints, and protect
