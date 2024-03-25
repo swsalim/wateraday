@@ -48,6 +48,15 @@ export default async function Home() {
         <h2 className="capitalize">
           What factors influence how much water you should drink?
         </h2>
+        <div className="relative float-end ml-14 w-56 rotate-12 rounded-md bg-white p-6 shadow-xl">
+          <h4 className="mb-2 mt-0 font-heading capitalize">
+            FUN FACT: Humans are made mostly of water
+          </h4>
+          <p className="mb-0 mt-2">
+            An adult human body is about 60% water, with the brain and heart
+            being composed of around 73% water.
+          </p>
+        </div>
         <p>
           Several factors can influence how much water you should drink in a
           day. These include:
