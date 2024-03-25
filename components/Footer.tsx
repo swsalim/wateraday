@@ -24,13 +24,14 @@ export function Footer() {
           </span>
           <span className="mt-2 block text-stone-900 md:ml-2 md:mt-0 md:inline-block">
             Privacy-friendly analytics by{' '}
-            <Link
-              href="/get/simpleanalytics"
+            <a
+              href="https://go.yuurrific.com/simpleanalytics"
               className="inline-block rotate-0 rounded-md bg-blue-600 px-2 py-1 text-stone-100 transition duration-100 ease-out hover:-rotate-3 hover:ease-in"
               target="_blank"
+              suppressHydrationWarning={true}
             >
               SimpleAnalytics
-            </Link>
+            </a>
           </span>
         </p>
       </div>

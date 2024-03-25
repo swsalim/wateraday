@@ -2,6 +2,12 @@
 @tailwind components;
 @tailwind utilities;
 
+:root {
+  --background: 201deg 100% 87%;
+  --primary: 201deg 100% 80%;
+  --foreground: 202deg 18% 12%;
+}
+
 html,
 body,
 #__next {
