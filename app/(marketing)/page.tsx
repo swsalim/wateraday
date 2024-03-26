@@ -1,8 +1,7 @@
 import type { Metadata } from 'next'
-import Water from '@/images/water-glass-solid.svg'
 
 import { siteConfig } from '@/config/site'
-import { Cup } from '@/components/icons'
+import { FunFact } from '@/components/FunFact'
 import { PageHeader } from '@/components/PageHeader'
 import { TableWaterIntake } from '@/components/TableWaterIntake'
 import { WaterIntakeCalculator } from '@/components/WaterIntakeCalculator'
@@ -49,18 +48,12 @@ export default async function Home() {
         <h2 className="capitalize">
           What factors influence how much water you should drink?
         </h2>
-        <div className="group relative float-end ml-14 w-56 rotate-12 rounded-xl bg-white p-6 shadow-xl">
-          <div className="absolute -left-4 -top-4 rounded-full bg-stone-700 p-2 shadow-md">
-            <Cup className="size-8 text-background transition group-hover:rotate-12" />
-          </div>
-          <h4 className="mb-2 mt-0 font-heading text-lg capitalize">
-            FUN FACT: Humans are made mostly of water
-          </h4>
-          <p className="mb-0 mt-2 text-sm">
-            An adult human body is about <strong>60% water</strong>, with the
-            brain and heart being composed of around <strong>73% water</strong>.
-          </p>
-        </div>
+
+        <FunFact title="Humans are made mostly of water">
+          An adult human body is about <strong>60% water</strong>, with the
+          brain and heart being composed of around <strong>73% water</strong>.
+        </FunFact>
+
         <p>
           Several factors can influence how much water you should drink in a
           day. These include:
@@ -112,6 +105,17 @@ export default async function Home() {
         <div className="mx-auto w-full md:max-w-3xl">
           <TableWaterIntake />
         </div>
+        <FunFact
+          title="Water consumption helps maintain a healthy weight"
+          align="left"
+          icon="bottle"
+        >
+          Drinking water can help you feel full and make your body's
+          energy-burning process work better, which helps in{' '}
+          <a href="https://www.clinicgeek.com/blog/how-do-you-lose-weight-without-exercise#2-drink-more-water?ref=wateraday.com">
+            keeping a healthy weight.
+          </a>
+        </FunFact>
         <p>
           These recommendations include fluids from all sources, including
           water, beverages, and food. It is important to note that these are
@@ -120,9 +124,12 @@ export default async function Home() {
         </p>
         <h2 className="capitalize">What are the signs of dehydration? </h2>
         <p>
-          Dehydration occurs when the body loses more water than it takes in. It
-          can lead to various symptoms and health problems. Some common signs of
-          dehydration include:
+          <a href="https://www.clinicgeek.com/blog/6-danger-of-rapid-weight-loss#4-dehydration?ref=wateraday.com">
+            Dehydration
+          </a>{' '}
+          occurs when the body loses more water than it takes in. It can lead to
+          various symptoms and health problems. Some common signs of dehydration
+          include:
         </p>
         <ul>
           <li>
@@ -164,6 +171,10 @@ export default async function Home() {
           well-being. Here are some practical tips to help you stay hydrated
           throughout the day:
         </p>
+        <FunFact title="You can survive weeks without food, but only days without water">
+          Water is crucial for maintaining bodily functions, including
+          regulation of temperature, removal of waste, and digestion.
+        </FunFact>
         <ol>
           <li>
             <strong>Carry a water bottle</strong>: Keep a reusable water bottle

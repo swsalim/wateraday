@@ -148,7 +148,7 @@ export function WaterIntakeCalculator() {
           !showResult && 'max-w-2xl'
         )}
       >
-        <div className={cn('flex flex-col bg-white md:flex-row')}>
+        <div className={cn('flex flex-col bg-stone-50 md:flex-row')}>
           <div className="w-full space-y-8 p-6">
             <div className="grid grid-cols-2 gap-6">
               <FormField
