@@ -3,6 +3,7 @@ import type { Metadata } from 'next'
 import { siteConfig } from '@/config/site'
 import { FunFact } from '@/components/FunFact'
 import { PageHeader } from '@/components/PageHeader'
+import { Section } from '@/components/Section'
 import { TableWaterIntake } from '@/components/TableWaterIntake'
 import { WaterIntakeCalculator } from '@/components/WaterIntakeCalculator'
 
@@ -28,34 +29,32 @@ export default async function Home() {
           </div>
         </div>
       </div>
-      <section className="bg-blue-950 py-6 md:py-12">
-        <div className="container prose mx-auto max-w-3xl px-4 md:px-8">
-          <h2 className="mt-0 text-center capitalize text-blue-50">
-            Are you drinking enough water to stay hydrated?
-          </h2>
+      <Section className="bg-blue-950" innerContainer>
+        <h2 className="mt-0 text-center capitalize text-blue-50">
+          Are you drinking enough water to stay hydrated?
+        </h2>
 
-          <FunFact title="Humans are made mostly of water">
-            An adult human body is about <strong>60% water</strong>, with the
-            brain and heart being composed of around <strong>73% water</strong>.
-          </FunFact>
+        <FunFact title="Humans are made mostly of water">
+          An adult human body is about <strong>60% water</strong>, with the
+          brain and heart being composed of around <strong>73% water</strong>.
+        </FunFact>
 
-          <p className="text-blue-200">
-            Water is essential for maintaining the balance of bodily fluids. It
-            helps to regulate body temperature, lubricate joints, and protect
-            sensitive tissues. Water also plays a key role in digestion and
-            nutrient absorption, as well as the elimination of waste products
-            through urine and sweat.
-          </p>
-          <p className="mb-0 text-blue-200">
-            Proper hydration is crucial for optimal brain function and
-            concentration. Even mild dehydration can impair cognitive
-            performance, leading to decreased focus, fatigue, and headaches.
-            Water is also important for maintaining healthy skin, as it helps to
-            moisturize and nourish the skin cells.
-          </p>
-        </div>
-      </section>
-      <section className="container prose mx-auto max-w-3xl px-4 md:px-8">
+        <p className="text-blue-200">
+          Water is essential for maintaining the balance of bodily fluids. It
+          helps to regulate body temperature, lubricate joints, and protect
+          sensitive tissues. Water also plays a key role in digestion and
+          nutrient absorption, as well as the elimination of waste products
+          through urine and sweat.
+        </p>
+        <p className="mb-0 text-blue-200">
+          Proper hydration is crucial for optimal brain function and
+          concentration. Even mild dehydration can impair cognitive performance,
+          leading to decreased focus, fatigue, and headaches. Water is also
+          important for maintaining healthy skin, as it helps to moisturize and
+          nourish the skin cells.
+        </p>
+      </Section>
+      <Section>
         <h2 className="capitalize">
           What factors influence how much water you should drink?
         </h2>
@@ -99,20 +98,11 @@ export default async function Home() {
           is best to consult with a healthcare professional or use a water
           intake calculator to determine your specific daily water intake.
         </p>
-      </section>
-      <section className="container prose mx-auto max-w-3xl px-4 md:px-8">
+      </Section>
+      <Section>
         <h2 className="capitalize">
           How much water should you drink in a day?
         </h2>
-        <p>
-          The recommended daily water intake varies depending on various
-          factors, including age, gender, activity level, and overall health.
-          The National Academies of Sciences, Engineering, and Medicine provides
-          general guidelines for daily water intake:
-        </p>
-        <div className="mx-auto w-full md:max-w-3xl">
-          <TableWaterIntake />
-        </div>
         <FunFact
           title="Water consumption helps maintain a healthy weight"
           align="left"
@@ -124,6 +114,15 @@ export default async function Home() {
             keeping a healthy weight.
           </a>
         </FunFact>
+        <p>
+          The recommended daily water intake varies depending on various
+          factors, including age, gender, activity level, and overall health.
+          The National Academies of Sciences, Engineering, and Medicine provides
+          general guidelines for daily water intake:
+        </p>
+        <div className="mx-auto w-full md:max-w-3xl">
+          <TableWaterIntake />
+        </div>
         <p>
           These recommendations include fluids from all sources, including
           water, beverages, and food. It is important to note that these are
@@ -171,8 +170,8 @@ export default async function Home() {
           water and rehydrate your body. Severe dehydration can be
           life-threatening and may require medical attention.
         </p>
-      </section>
-      <section className="container prose mx-auto max-w-3xl px-4 md:px-8">
+      </Section>
+      <Section>
         <h2 className="capitalize">
           How can you stay hydrated throughout the day?{' '}
         </h2>
@@ -220,7 +219,7 @@ export default async function Home() {
             well-hydrated.
           </li>
         </ol>
-      </section>
+      </Section>
     </>
   )
 }

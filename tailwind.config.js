@@ -161,13 +161,14 @@ const config = {
           },
           h2: {
             fontFamily: theme('fontFamily.heading'),
-            lineHeight: theme('lineHeight.7'),
+            lineHeight: theme('lineHeight.10'),
             fontSize: theme('fontSize.3xl')[0],
-            lineHeight: theme('lineHeight.9'),
             marginTop: theme('spacing.8'),
             marginBottom: theme('spacing.4'),
 
             '@screen md': {
+              lineHeight: theme('lineHeight.10'),
+              fontSize: theme('fontSize.4xl')[0],
               marginTop: theme('spacing.12'),
               marginBottom: theme('spacing.4'),
             },
