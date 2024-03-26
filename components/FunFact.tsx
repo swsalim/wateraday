@@ -20,12 +20,13 @@ export function FunFact({
   return (
     <div
       className={cn(
-        'group relative w-56 rounded-xl bg-stone-100 p-6 shadow-xl',
-        align === 'left' && 'float-start mr-14 -rotate-12',
-        align === 'right' && 'float-end ml-14 rotate-12'
+        'group relative mx-auto my-8 w-full max-w-xs rounded-xl bg-gray-100 p-6 shadow-xl md:w-56',
+        align === 'left' && 'md:float-start md:mr-14 md:-rotate-12',
+        align === 'right' && 'md:float-end md:ml-14 md:rotate-12'
       )}
+      {...props}
     >
-      <div className="absolute -left-4 -top-4 rounded-full border-1 border-primary bg-background p-2 shadow-md">
+      <div className="absolute -left-6 -top-6 rounded-full border-1 border-blue-600 bg-blue-200 p-2 shadow-md md:-left-4 md:-top-4">
         {icon === 'cup' && (
           <Cup className="size-8 text-background transition group-hover:-rotate-12" />
         )}

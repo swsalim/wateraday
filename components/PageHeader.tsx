@@ -22,7 +22,7 @@ export function PageHeader({
       >
         {title}
       </Balancer>
-      <p className="mt-6 text-2xl font-medium text-stone-500">{intro}</p>
+      <p className="mt-6 text-2xl font-medium text-gray-500">{intro}</p>
     </header>
   )
 }

@@ -148,7 +148,7 @@ export function WaterIntakeCalculator() {
           !showResult && 'max-w-2xl'
         )}
       >
-        <div className={cn('flex flex-col bg-stone-50 md:flex-row')}>
+        <div className={cn('flex flex-col bg-gray-50 md:flex-row')}>
           <div className="w-full space-y-8 p-6">
             <div className="grid grid-cols-2 gap-6">
               <FormField
@@ -168,7 +168,7 @@ export function WaterIntakeCalculator() {
                           <FormControl>
                             <RadioGroupItem value="male" className="sr-only" />
                           </FormControl>
-                          <div className="cursor-pointer items-center rounded-md rounded-r-none border-1 border-stone-800/40 bg-stone-50/20 p-4 transition hover:border-blue-600/55 hover:bg-stone-50/55">
+                          <div className="cursor-pointer items-center rounded-md rounded-r-none border-1 border-gray-800/40 bg-gray-50/20 p-4 transition hover:border-blue-600/55 hover:bg-gray-50/55">
                             <Male className="mx-auto size-10 fill-background stroke-foreground/50 transition" />
                           </div>
                           <span className="block w-full p-2 text-center font-normal">
@@ -184,7 +184,7 @@ export function WaterIntakeCalculator() {
                               className="sr-only"
                             />
                           </FormControl>
-                          <div className="cursor-pointer items-center rounded-md rounded-l-none border-1 border-stone-800/40 bg-stone-50/20 p-4 transition hover:border-blue-600/55 hover:bg-stone-50/55">
+                          <div className="cursor-pointer items-center rounded-md rounded-l-none border-1 border-gray-800/40 bg-gray-50/20 p-4 transition hover:border-blue-600/55 hover:bg-gray-50/55">
                             <Female className="mx-auto size-10 fill-background stroke-foreground/50 transition" />
                           </div>
                           <span className="block w-full p-2 text-center font-normal">
@@ -208,7 +208,7 @@ export function WaterIntakeCalculator() {
                         <span className="mr-2 inline font-heading text-5xl">
                           {field.value}
                         </span>
-                        <span className="inline text-base font-medium uppercase text-stone-500">
+                        <span className="inline text-base font-medium uppercase text-gray-500">
                           years
                         </span>
                       </div>
@@ -239,7 +239,7 @@ export function WaterIntakeCalculator() {
                         <span className="mr-2 inline font-heading text-5xl">
                           {field.value}
                         </span>
-                        <span className="inline text-base font-medium uppercase text-stone-500">
+                        <span className="inline text-base font-medium uppercase text-gray-500">
                           kg
                         </span>
                       </div>
@@ -268,7 +268,7 @@ export function WaterIntakeCalculator() {
                         <span className="mr-2 inline font-heading text-5xl">
                           {field.value}
                         </span>
-                        <span className="inline text-base font-medium uppercase text-stone-500">
+                        <span className="inline text-base font-medium uppercase text-gray-500">
                           cm
                         </span>
                       </div>
@@ -302,7 +302,7 @@ export function WaterIntakeCalculator() {
                       <SelectTrigger>
                         <SelectValue
                           placeholder="Select a verified email to display"
-                          className="text-stone-500"
+                          className="text-gray-500"
                         />
                       </SelectTrigger>
                     </FormControl>
