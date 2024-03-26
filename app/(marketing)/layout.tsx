@@ -19,7 +19,7 @@ export default function MarketingLayout({ children }: MarketingLayoutProps) {
       <header className="sticky top-0 z-40 border-b-[1px] border-b-gray-300/80 bg-gray-50/50 px-4 backdrop-blur backdrop-saturate-150 md:px-8">
         <MainNav />
       </header>
-      <main className="flex flex-1 py-4 md:py-8">{children}</main>
+      <main className="flex flex-1 flex-col py-4 md:py-8">{children}</main>
       <Footer />
     </>
   )

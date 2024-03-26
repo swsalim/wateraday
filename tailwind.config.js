@@ -14,7 +14,7 @@ const config = {
       white: colors.white,
       rose: colors.rose,
       red: colors.red,
-      gray: colors.stone
+      gray: colors.stone,
     },
     container: {
       center: true,
@@ -33,19 +33,18 @@ const config = {
         foreground: 'hsl(var(--foreground) / <alpha-value>)',
         primary: 'hsl(var(--primary) / <alpha-value>)',
         blue: {
-          '50': '#f0f9ff',
-          '100': '#dff1ff',
-          '200': '#b8e4ff',
-          '300': '#99dbff',
-          '400': '#33b9fd',
-          '500': '#09a0ee',
-          '600': '#007fcc',
-          '700': '#0065a5',
-          '800': '#045688',
-          '900': '#0a4870',
-          '950': '#062d4b',
-      },
-
+          50: '#f0f9ff',
+          100: '#dff1ff',
+          200: '#b8e4ff',
+          300: '#99dbff',
+          400: '#33b9fd',
+          500: '#09a0ee',
+          600: '#007fcc',
+          700: '#0065a5',
+          800: '#045688',
+          900: '#0a4870',
+          950: '#062d4b',
+        },
       },
       animation: {
         reveal: 'reveal 0.7s ease-in-out',
@@ -142,8 +141,8 @@ const config = {
           },
           p: {
             fontSize: theme('fontSize.lg')[0],
-            marginTop: theme('spacing.2'),
-            marginBottom: theme('spacing.2'),
+            marginTop: theme('spacing.4'),
+            marginBottom: theme('spacing.4'),
 
             '@screen sm': {
               marginTop: theme('spacing.4'),

@@ -22,9 +22,9 @@ export default function Bottle(props: IconProps) {
       <path
         fill="none"
         stroke="#000"
-        stroke-linecap="round"
-        stroke-linejoin="round"
-        stroke-width="2"
+        strokeLinecap="round"
+        strokeLinejoin="round"
+        strokeWidth="2"
         d="M29 10h14M30 5h12m-1 8.5V15c4 5 6 6 6 8s-2 2-2 3s2 1 2 3s-2 2-2 3s2 1 2 3s-2 2-2 3s2 1 2 3s-2 2-2 3s2 1 2 3s-2 2-2 3s2 1 2 3s-2 2-2 3s2 1 2 3s-2 2-2 3s2 1 2 3s-1.717 2-2 2H27c-.283 0-2 0-2-2s2-2 2-3s-2-1-2-3s2-2 2-3s-2-1-2-3s2-2 2-3s-2-1-2-3s2-2 2-3s-2-1-2-3s2-2 2-3s-2-1-2-3s2-2 2-3s-2-1-2-3s2-2 2-3s-2-1-2-3s2-3 6-8v-1.5m.5 12.5h9m-9 6h9m-9 6h9m-9 6h9m-9 6h9m-9 6h9m-9 6h9"
       />
     </svg>
