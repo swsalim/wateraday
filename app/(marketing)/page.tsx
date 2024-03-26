@@ -2,6 +2,7 @@ import type { Metadata } from 'next'
 import Water from '@/images/water-glass-solid.svg'
 
 import { siteConfig } from '@/config/site'
+import { Cup } from '@/components/icons'
 import { PageHeader } from '@/components/PageHeader'
 import { TableWaterIntake } from '@/components/TableWaterIntake'
 import { WaterIntakeCalculator } from '@/components/WaterIntakeCalculator'
@@ -48,13 +49,16 @@ export default async function Home() {
         <h2 className="capitalize">
           What factors influence how much water you should drink?
         </h2>
-        <div className="relative float-end ml-14 w-56 rotate-12 rounded-md bg-white p-6 shadow-xl">
-          <h4 className="mb-2 mt-0 font-heading capitalize">
+        <div className="group relative float-end ml-14 w-56 rotate-12 rounded-xl bg-white p-6 shadow-xl">
+          <div className="absolute -left-4 -top-4 rounded-full bg-stone-700 p-2 shadow-md">
+            <Cup className="size-8 text-background transition group-hover:rotate-12" />
+          </div>
+          <h4 className="mb-2 mt-0 font-heading text-lg capitalize">
             FUN FACT: Humans are made mostly of water
           </h4>
-          <p className="mb-0 mt-2">
-            An adult human body is about 60% water, with the brain and heart
-            being composed of around 73% water.
+          <p className="mb-0 mt-2 text-sm">
+            An adult human body is about <strong>60% water</strong>, with the
+            brain and heart being composed of around <strong>73% water</strong>.
           </p>
         </div>
         <p>
