@@ -37,7 +37,7 @@ export function FunFact({
       <h4 className="mb-2 mt-0 font-heading text-lg capitalize">
         FUN FACT: {title}
       </h4>
-      <p className="mb-0 mt-2 text-sm">{children}</p>
+      <p className="mb-0 mt-2 text-sm !text-foreground">{children}</p>
     </div>
   )
 }

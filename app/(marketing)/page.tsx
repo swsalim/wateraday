@@ -1,4 +1,5 @@
 import type { Metadata } from 'next'
+import Balancer from 'react-wrap-balancer'
 
 import { siteConfig } from '@/config/site'
 import { FunFact } from '@/components/FunFact'
@@ -29,24 +30,22 @@ export default async function Home() {
           </div>
         </div>
       </div>
-      <Section className="bg-blue-950" innerContainer>
-        <h2 className="mt-0 text-center capitalize text-blue-50">
-          Are you drinking enough water to stay hydrated?
-        </h2>
+      <Section theme="dark" innerContainer>
+        <h2>Are you drinking enough water to stay hydrated?</h2>
 
         <FunFact title="Humans are made mostly of water">
           An adult human body is about <strong>60% water</strong>, with the
           brain and heart being composed of around <strong>73% water</strong>.
         </FunFact>
 
-        <p className="text-blue-200">
+        <p>
           Water is essential for maintaining the balance of bodily fluids. It
           helps to regulate body temperature, lubricate joints, and protect
           sensitive tissues. Water also plays a key role in digestion and
           nutrient absorption, as well as the elimination of waste products
           through urine and sweat.
         </p>
-        <p className="mb-0 text-blue-200">
+        <p className="mb-0">
           Proper hydration is crucial for optimal brain function and
           concentration. Even mild dehydration can impair cognitive performance,
           leading to decreased focus, fatigue, and headaches. Water is also
@@ -55,9 +54,9 @@ export default async function Home() {
         </p>
       </Section>
       <Section>
-        <h2 className="capitalize">
+        <Balancer as="h2">
           What factors influence how much water you should drink?
-        </h2>
+        </Balancer>
 
         <p>
           Several factors can influence how much water you should drink in a
@@ -99,10 +98,8 @@ export default async function Home() {
           intake calculator to determine your specific daily water intake.
         </p>
       </Section>
-      <Section>
-        <h2 className="capitalize">
-          How much water should you drink in a day?
-        </h2>
+      <Section theme="dark" innerContainer>
+        <Balancer as="h2">How much water should you drink in a day?</Balancer>
         <FunFact
           title="Water consumption helps maintain a healthy weight"
           align="left"
@@ -129,7 +126,9 @@ export default async function Home() {
           general guidelines, and individual water needs may vary. It is always
           best to listen to your body and drink water when you feel thirsty.
         </p>
-        <h2 className="capitalize">What are the signs of dehydration? </h2>
+      </Section>
+      <Section>
+        <Balancer as="h2">What are the signs of dehydration? </Balancer>
         <p>
           <a href="https://www.clinicgeek.com/blog/6-danger-of-rapid-weight-loss#4-dehydration?ref=wateraday.com">
             Dehydration
@@ -171,14 +170,13 @@ export default async function Home() {
           life-threatening and may require medical attention.
         </p>
       </Section>
-      <Section>
-        <h2 className="capitalize">
+      <Section theme="dark" innerContainer>
+        <Balancer as="h2">
           How can you stay hydrated throughout the day?{' '}
-        </h2>
+        </Balancer>
         <p>
-          Staying hydrated is essential for maintaining good health and
-          well-being. Here are some practical tips to help you stay hydrated
-          throughout the day:
+          Here are some practical tips to help you stay hydrated throughout the
+          day:
         </p>
         <FunFact title="You can survive weeks without food, but only days without water">
           Water is crucial for maintaining bodily functions, including
@@ -217,6 +215,86 @@ export default async function Home() {
             <strong>Monitor urine color</strong>: Check the color of your urine.
             If it is pale yellow or clear, it indicates that you are
             well-hydrated.
+          </li>
+        </ol>
+      </Section>
+      <Section>
+        <Balancer as="h2">
+          Beware The Dangers of Drinking Too Much Water
+        </Balancer>
+        <p>
+          While it is important to stay hydrated, overhydration can have serious
+          consequences. When we drink excessive amounts of water, our body's
+          electrolyte balance can be disrupted, leading to a condition known as
+          water intoxication or hyponatremia.
+        </p>
+        <p>
+          This condition occurs when the sodium levels in our blood become
+          diluted, causing cells to swell.
+        </p>
+      </Section>
+      <Section theme="dark" innerContainer>
+        <Balancer as="h2">What is Water Intoxication?</Balancer>
+        <p>
+          Water intoxication can occur due to various factors, including
+          excessive water intake, certain medical conditions, and prolonged
+          physical activity without proper hydration. The symptoms of water
+          intoxication can vary and may include:
+        </p>
+        <ol>
+          <li>Headaches</li>
+          <li>Nausea and vomiting </li>
+          <li>Confusion and disorientation</li>
+          <li>Seizures</li>
+          <li>Muscle weakness and cramps</li>
+          <li>Fatigue and tiredness</li>
+        </ol>
+      </Section>
+      <Section>
+        <Balancer as="h2">What is Hyponatremia?</Balancer>
+        <p>
+          One of the most significant dangers of drinking too much water is the
+          development of hyponatremia. Hyponatremia is a condition characterized
+          by low sodium levels in the blood. Sodium is an essential electrolyte
+          that helps regulate fluid balance in the body.
+        </p>
+        <p>
+          When sodium levels become too diluted, it can lead to swelling of the
+          cells and potentially life-threatening complications.
+        </p>
+      </Section>
+      <Section theme="dark" innerContainer>
+        <h2>How to Prevent Water Intoxication?</h2>
+
+        <p>
+          To prevent water intoxication and maintain proper hydration, it is
+          essential to follow these guidelines:
+        </p>
+
+        <ol>
+          <li>
+            <strong>Drink water in moderation</strong>: While it is important to
+            stay hydrated, avoid excessive water intake. Listen to your body's
+            thirst cues and drink water when you feel thirsty.
+          </li>
+
+          <li>
+            <strong>Monitor your urine color</strong>: Pay attention to the
+            color of your urine. Clear or pale urine may indicate overhydration,
+            while a light yellow color is a sign of proper hydration.
+          </li>
+
+          <li>
+            <strong>Balance water intake with electrolytes</strong>: If you
+            engage in prolonged physical activity or sweat excessively, consider
+            replenishing electrolytes with sports drinks or electrolyte-rich
+            foods.
+          </li>
+
+          <li>
+            <strong>Consult a healthcare professional</strong>: If you have any
+            concerns about your water intake or experience symptoms of
+            overhydration, seek medical advice.
           </li>
         </ol>
       </Section>

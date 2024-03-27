@@ -34,7 +34,7 @@ export function TableWaterIntake() {
     <div className="mt-8 flow-root">
       <div className="-mx-4 -my-2 overflow-x-auto sm:-mx-6 lg:-mx-8">
         <div className="inline-block min-w-full py-2 align-middle sm:px-6 lg:px-8">
-          <table className="min-w-full divide-y divide-gray-300">
+          <table className="min-w-full divide-y divide-blue-200">
             <caption className="sr-only">
               Recommended Daily Water Intake
             </caption>
@@ -54,13 +54,13 @@ export function TableWaterIntake() {
                 </th>
               </tr>
             </thead>
-            <tbody className="divide-y divide-gray-200">
+            <tbody className="divide-y divide-blue-200">
               {ageGroups.map((ageGroup) => (
                 <tr key={ageGroup.name}>
-                  <td className="whitespace-nowrap py-4 pl-4 pr-3 text-sm font-medium text-gray-900 sm:pl-0">
+                  <td className="whitespace-nowrap py-4 pl-4 pr-3 text-base font-semibold text-gray-900 sm:pl-0">
                     {ageGroup.name}
                   </td>
-                  <td className="whitespace-nowrap px-3 py-4 text-sm text-gray-500">
+                  <td className="whitespace-nowrap px-3 py-4 text-base text-gray-500">
                     <span className="block">{ageGroup.value}</span>
                   </td>
                 </tr>

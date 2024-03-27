@@ -140,7 +140,7 @@ const config = {
             marginBottom: theme('spacing.10'),
           },
           p: {
-            fontSize: theme('fontSize.lg')[0],
+            fontSize: theme('fontSize.base')[0],
             marginTop: theme('spacing.4'),
             marginBottom: theme('spacing.4'),
 
@@ -164,13 +164,13 @@ const config = {
             lineHeight: theme('lineHeight.10'),
             fontSize: theme('fontSize.3xl')[0],
             marginTop: theme('spacing.8'),
-            marginBottom: theme('spacing.4'),
+            marginBottom: theme('spacing.6'),
 
             '@screen md': {
               lineHeight: theme('lineHeight.10'),
               fontSize: theme('fontSize.4xl')[0],
               marginTop: theme('spacing.12'),
-              marginBottom: theme('spacing.4'),
+              marginBottom: theme('spacing.8'),
             },
           },
           h3: {
@@ -228,7 +228,7 @@ const config = {
             marginTop: 0,
 
             '@screen md': {
-              marginTop: `-${theme('spacing.4')}`,
+              marginTop: `-${theme('spacing.2')}`,
             },
           },
 
@@ -249,7 +249,7 @@ const config = {
           },
           strong: {
             color: 'var(--tw-prose-bold)',
-            fontWeight: theme('fontWeight.semibold'),
+            fontWeight: theme('fontWeight.bold'),
           },
           code: {
             display: 'inline-block',
@@ -378,13 +378,13 @@ const config = {
           'thead th:not(:last-child)': {
             paddingRight: theme('spacing.2'),
           },
-          'tbody tr': {
-            borderBottomWidth: '1px',
-            borderBottomColor: 'var(--tw-prose-td-borders)',
-          },
-          'tbody tr:last-child': {
-            borderBottomWidth: 0,
-          },
+          // 'tbody tr': {
+          //   borderBottomWidth: '1px',
+          //   borderBottomColor: 'var(--tw-prose-td-borders)',
+          // },
+          // 'tbody tr:last-child': {
+          //   borderBottomWidth: 0,
+          // },
           'tbody td': {
             verticalAlign: 'baseline',
           },
