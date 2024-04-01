@@ -74,6 +74,8 @@ export default function RootLayout({
     >
       <head>
         <link rel="preconnect" href="//ik.imagekit.io" />
+        <link rel="preconnect" href="//stats.wateraday.com" />
+        <link rel="dns-prefetch" href="//stats.wateraday.com" />
         <link rel="dns-prefetch" href="//ik.imagekit.io" />
         <Script
           id="simple-analytics"
@@ -101,6 +103,7 @@ export default function RootLayout({
             referrerPolicy="no-referrer-when-downgrade"
             width="1"
             height="1"
+            unoptimized
           />
         </noscript>
       </body>
