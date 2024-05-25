@@ -1,4 +1,5 @@
 import type { Metadata } from 'next'
+import Link from 'next/link'
 import Balancer from 'react-wrap-balancer'
 
 import { siteConfig } from '@/config/site'
@@ -30,7 +31,7 @@ export default async function Home() {
           </div>
         </div>
       </div>
-      <Section theme="dark" innerContainer>
+      <Section theme="dark">
         <h2>Are you drinking enough water to stay hydrated?</h2>
 
         <FunFact title="Humans are made mostly of water">
@@ -98,7 +99,7 @@ export default async function Home() {
           intake calculator to determine your specific daily water intake.
         </p>
       </Section>
-      <Section theme="dark" innerContainer>
+      <Section theme="dark">
         <Balancer as="h2">How much water should you drink in a day?</Balancer>
         <FunFact
           title="Water consumption helps maintain a healthy weight"
@@ -130,12 +131,9 @@ export default async function Home() {
       <Section>
         <Balancer as="h2">What are the signs of dehydration? </Balancer>
         <p>
-          <a href="https://www.clinicgeek.com/blog/6-danger-of-rapid-weight-loss#4-dehydration?ref=wateraday.com">
-            Dehydration
-          </a>{' '}
-          occurs when the body loses more water than it takes in. It can lead to
-          various symptoms and health problems. Some common signs of dehydration
-          include:
+          <Link href="/dehydration">Dehydration</Link> occurs when the body
+          loses more water than it takes in. It can lead to various symptoms and
+          health problems. Some common signs of dehydration include:
         </p>
         <ul>
           <li>
@@ -170,7 +168,7 @@ export default async function Home() {
           life-threatening and may require medical attention.
         </p>
       </Section>
-      <Section theme="dark" innerContainer>
+      <Section theme="dark">
         <Balancer as="h2">
           How can you stay hydrated throughout the day?{' '}
         </Balancer>
@@ -233,7 +231,7 @@ export default async function Home() {
           diluted, causing cells to swell.
         </p>
       </Section>
-      <Section theme="dark" innerContainer>
+      <Section theme="dark">
         <Balancer as="h2">What is Water Intoxication?</Balancer>
         <p>
           Water intoxication can occur due to various factors, including
@@ -263,7 +261,7 @@ export default async function Home() {
           cells and potentially life-threatening complications.
         </p>
       </Section>
-      <Section theme="dark" innerContainer>
+      <Section theme="dark">
         <h2>How to Prevent Water Intoxication?</h2>
 
         <p>

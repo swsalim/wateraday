@@ -2,7 +2,7 @@
 
 import React, { useState } from 'react'
 import Link from 'next/link'
-import { useSelectedLayoutSegment } from 'next/navigation'
+import { usePathname } from 'next/navigation'
 import { AnimatePresence, motion } from 'framer-motion'
 
 import { MainNavItem } from 'types'
@@ -16,12 +16,12 @@ interface MainNavProps {
 }
 
 export function MainNav({ items }: MainNavProps) {
-  const segment = useSelectedLayoutSegment()
+  const pathname = usePathname()
   let [hoveredIndex, setHoveredIndex] = useState<number | null>(null)
 
   return (
     <nav
-      className="isolate mx-auto flex items-center justify-between py-2"
+      className="isolate mx-auto flex items-center justify-between py-4"
       aria-label="Global"
     >
       <Link href="/">
@@ -65,7 +65,7 @@ export function MainNav({ items }: MainNavProps) {
               href={item.disabled ? '#' : item.href}
               className={cn(
                 'relative px-4 py-2 font-heading text-base tracking-wide transition-colors hover:text-gray-900/80 sm:text-base',
-                item.href.startsWith(`/${segment}`)
+                pathname.startsWith(item.href)
                   ? 'text-gray-900'
                   : 'text-gray-900/70',
                 item.disabled && 'cursor-not-allowed opacity-80'
@@ -76,7 +76,7 @@ export function MainNav({ items }: MainNavProps) {
               <AnimatePresence>
                 {hoveredIndex === index && (
                   <motion.span
-                    className="absolute inset-0 rounded-lg bg-gray-100"
+                    className="absolute inset-0 rounded-lg bg-primary/20"
                     layoutId="hoverBackgroundID"
                     initial={{ opacity: 0 }}
                     animate={{ opacity: 1, transition: { duration: 0.15 } }}
