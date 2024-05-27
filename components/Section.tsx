@@ -13,7 +13,7 @@ import { cn } from '@/lib/utils'
 const sectionVariants = cva('prose prose-h2:capitalize', {
   variants: {
     theme: {
-      light: '',
+      light: 'prose-headings:text-blue-950 prose-p:text-blue-950',
       dark: 'bg-blue-950 prose-h2:text-blue-50 prose-h3:text-blue-100 prose-p:text-blue-200 prose-strong:text-blue-50 prose-li:text-blue-200 prose-li:marker:text-blue-50 prose-th:text-blue-50 prose-td:text-blue-100',
     },
     size: {
@@ -45,7 +45,11 @@ export function Section({
         {...props}
         className={cn(sectionVariants({ theme, size, className }))}
       >
-        <div className="container my-0">{children}</div>
+        <div className="mx-auto my-0 max-w-7xl px-6 lg:px-8">
+          <div className="mx-auto max-w-2xl lg:mx-0 lg:max-w-none">
+            {children}
+          </div>
+        </div>
       </section>
     </>
   )

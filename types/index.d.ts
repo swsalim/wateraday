@@ -79,26 +79,10 @@ export type Product = {
   image: string
 }
 
-export type Brand = {
-  id: string
-  name: string
-  slug: string
-}
+export type ConversionMetricsConfig = Metric[]
 
-export type Category = {
-  id: string
+export type Metric = {
   name: string
   slug: string
-}
-
-export type AgeGroup = {
-  id: string
-  name: string
-  slug: string
-}
-
-export type Tag = {
-  id: string
-  name: string
-  slug: string
+  symbol?: string
 }

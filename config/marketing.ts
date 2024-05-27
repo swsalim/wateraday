@@ -6,9 +6,9 @@ export const marketingConfig: MarketingConfig = {
       title: 'Dehydration',
       href: '/dehydration',
     },
-    // {
-    //   title: 'Volume Converter',
-    //   href: '/volume-converter',
-    // },
+    {
+      title: 'Volume Converter',
+      href: '/volume-converter',
+    },
   ],
 }

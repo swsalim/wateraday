@@ -46,6 +46,7 @@ const config = {
       },
       animation: {
         reveal: 'reveal 0.7s ease-in-out',
+        'meteor-effect': 'meteor 5s linear infinite',
       },
       fontFamily: {
         sans: ['var(--font-geist-sans)'],
@@ -60,6 +61,14 @@ const config = {
           },
           '10%': { opacity: '1', filter: 'brightness(1.25) blur(10px)' },
           '100%': { opacity: '1', filter: 'brightness(1) blur(0)', scale: '1' },
+        },
+        meteor: {
+          '0%': { transform: 'rotate(215deg) translateX(0)', opacity: '1' },
+          '70%': { opacity: '1' },
+          '100%': {
+            transform: 'rotate(215deg) translateX(-500px)',
+            opacity: '0',
+          },
         },
       },
     },
@@ -90,7 +99,7 @@ const config = {
       },
       DEFAULT: {
         css: {
-          '--tw-prose-body': theme('colors.gray.600'),
+          '--tw-prose-body': theme('colors.background'),
           '--tw-prose-headings': theme('colors.foreground / 1'),
           '--tw-prose-links': theme('colors.rose.500'),
           '--tw-prose-links-hover': theme('colors.rose.600'),
@@ -151,6 +160,10 @@ const config = {
               marginTop: theme('spacing.6'),
               marginBottom: theme('spacing.6'),
             },
+          },
+
+          'p:last-of-type': {
+            marginBottom: 0,
           },
 
           // Headings
