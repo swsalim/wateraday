@@ -1,4 +1,4 @@
-import { generateConversionData } from '@/lib/utils'
+import { generateConversionData } from '@/lib/metrics'
 
 export function TableConversion({ slug }: { slug: string }) {
   const tableData = generateConversionData(slug)
