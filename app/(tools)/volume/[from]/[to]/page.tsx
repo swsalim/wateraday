@@ -91,8 +91,6 @@ export async function generateStaticParams() {
     })
   })
 
-  console.log(paths)
-
   return paths
 }
 
@@ -104,7 +102,6 @@ export default async function LiterConversion({
   const { from, to } = params
   const originalMetric = getMetricFromSlug(from, ConversionMetrics)
   const targetMetric = getMetricFromSlug(to, ConversionMetrics)
-  // console.log(targetMetric)
 
   if (!originalMetric || !targetMetric) {
     notFound()
