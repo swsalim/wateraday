@@ -133,15 +133,19 @@ export default async function LiterConversion({
                       <CardTitle className="capitalize">
                         {originalMetricName}
                       </CardTitle>
-                      <CardDescription>
-                        Abbreviation:{' '}
-                        <span
-                          className="my-0"
-                          dangerouslySetInnerHTML={{
-                            __html: originalMetricAbbreviations,
-                          }}
-                        ></span>
-                      </CardDescription>
+                      {originalMetricAbbreviations && (
+                        <CardDescription>
+                          {originalMetricAbbreviations.split(', ').length > 1
+                            ? 'Common Abbreviations: '
+                            : 'Abbreviation: '}
+                          <span
+                            className="my-0"
+                            dangerouslySetInnerHTML={{
+                              __html: originalMetricAbbreviations,
+                            }}
+                          ></span>
+                        </CardDescription>
+                      )}
                     </CardHeader>
                     <CardContent className="prose prose-p:mt-0">
                       {originalMetricDescription && (
@@ -160,15 +164,19 @@ export default async function LiterConversion({
                       <CardTitle className="capitalize">
                         {targetMetricName}
                       </CardTitle>
-                      <CardDescription>
-                        Common abbreviations:{' '}
-                        <span
-                          className="my-0"
-                          dangerouslySetInnerHTML={{
-                            __html: targetMetricAbbreviations,
-                          }}
-                        ></span>
-                      </CardDescription>
+                      {targetMetricAbbreviations && (
+                        <CardDescription>
+                          {targetMetricAbbreviations.split(', ').length > 1
+                            ? 'Common Abbreviations: '
+                            : 'Abbreviation: '}
+                          <span
+                            className="my-0"
+                            dangerouslySetInnerHTML={{
+                              __html: targetMetricAbbreviations,
+                            }}
+                          ></span>
+                        </CardDescription>
+                      )}
                     </CardHeader>
                     <CardContent className="prose prose-p:mt-0">
                       {targetMetricDescription && (

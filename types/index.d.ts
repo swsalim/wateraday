@@ -84,6 +84,6 @@ export type ConversionMetricsConfig = Metric[]
 export type Metric = {
   name: string
   slug: string
-  abbreviations?: string | React.ReactNode
+  abbreviations?: string
   description?: string
 }
