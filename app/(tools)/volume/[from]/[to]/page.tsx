@@ -1,8 +1,6 @@
-import type { Metadata } from 'next'
 import { notFound } from 'next/navigation'
 
 import { ConversionMetrics } from '@/config/metrics'
-import { siteConfig } from '@/config/site'
 import { convertValue, getMetricFromSlug } from '@/lib/metrics'
 import {
   Card,
@@ -19,43 +17,64 @@ import { VolumeConverterSimpleForm } from '@/components/VolumeConverterSimpleFor
 
 export const dynamicParams = false
 
-const config = {
-  title: 'Liquid Volume Converter',
-  description:
-    'Convert between barrels, cubic feet, gallons, liters, pints, tablespoons and other metric and imperial liquid volume units',
-  url: '/volume-converter',
-}
+export async function generateMetadata({
+  params,
+}: {
+  params: { from: string; to: string }
+}) {
+  const { from, to } = params
+  const originalMetric = getMetricFromSlug(from, ConversionMetrics)
+  const targetMetric = getMetricFromSlug(to, ConversionMetrics)
+  console.log(originalMetric, targetMetric)
 
-export const metadata: Metadata = {
-  title: config.title,
-  description: config.description,
-  alternates: {
-    canonical: config.url,
-  },
-  openGraph: {
-    title: config.title,
+  if (!originalMetric || !targetMetric) {
+    notFound()
+  }
+
+  const originalMetricName = originalMetric?.name
+  const targetMetricName = targetMetric?.name
+
+  const config = {
+    title: `Convert ${originalMetricName} to ${targetMetricName} in Seconds`,
+    description: `Convert any amount from ${originalMetricName} to ${targetMetricName}`,
+    url: `https://www.wateraday.com/volume/${from}/${to}`,
+  }
+
+  return {
+    title: `${config.title}`,
     description: config.description,
-    url: config.url,
-    images: [
-      {
-        url: new URL(
-          `${process.env.NEXT_PUBLIC_BASE_URL}/api/og?title=${config.title}`
-        ),
-        width: siteConfig.openGraph.width,
-        height: siteConfig.openGraph.height,
-        alt: siteConfig.openGraph.imageAlt,
-      },
-    ],
-    locale: 'en_US',
-    type: 'website',
-  },
-  twitter: {
-    title: config.title,
-    description: config.description,
-    card: 'summary_large_image',
-    creator: siteConfig.creator,
-    images: [siteConfig.openGraph.image],
-  },
+    openGraph: {
+      title: config.title,
+      description: config.description,
+      images: [
+        {
+          url: new URL(
+            `${process.env.NEXT_PUBLIC_BASE_URL}/api/og?title=${config.title}`
+          ),
+          width: '1200',
+          height: '630',
+          alt: config.title,
+        },
+      ],
+    },
+    twitter: {
+      title: config.title,
+      description: config.description,
+      images: [
+        {
+          url: new URL(
+            `${process.env.NEXT_PUBLIC_BASE_URL}/api/og?title=${config.title}`
+          ),
+          width: '1200',
+          height: '630',
+          alt: config.title,
+        },
+      ],
+    },
+    alternates: {
+      canonical: config.url,
+    },
+  }
 }
 
 export async function generateStaticParams({
@@ -76,7 +95,6 @@ export default async function LiterConversion({
   params: { from: string; to: string }
 }) {
   const { from, to } = params
-  console.log(from, to)
   const originalMetric = getMetricFromSlug(from, ConversionMetrics)
   const targetMetric = getMetricFromSlug(to, ConversionMetrics)
   console.log(originalMetric, targetMetric)
