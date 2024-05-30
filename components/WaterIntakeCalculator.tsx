@@ -60,8 +60,6 @@ export function WaterIntakeCalculator() {
 
   // 2. Define a submit handler.
   function onSubmit(values: z.infer<typeof waterIntakeFormSchema>) {
-    console.log('onSubmit')
-    console.log(values)
     setShowResult(true)
     setResult(calculateWaterIntake(values))
   }
@@ -113,8 +111,6 @@ export function WaterIntakeCalculator() {
       bmr = 10 * weight + 6.25 * height - 5 * age - 161
     }
 
-    console.log('bmr', bmr)
-
     let totalNeeds
     switch (activity) {
       case 'rare':
@@ -132,8 +128,6 @@ export function WaterIntakeCalculator() {
       default:
         totalNeeds = bmr // If somehow no activity level is selected
     }
-
-    console.log('totalNeeds', totalNeeds)
 
     return totalNeeds
   }

@@ -74,11 +74,8 @@ export function VolumeConverterSimpleForm({
 
   // 2. Define a submit handler.
   function onSubmit(values: z.infer<typeof volumeConverterFormSchema>) {
-    console.log('onSubmit')
-    console.log(values)
     const { amount, from, to } = values
     const convertedValue = convertValue(parseFloat(amount), from, to)
-    console.log(`convertedValue: ${convertedValue}`)
     setResult(convertedValue)
     setShowUpdatedResult(true)
   }

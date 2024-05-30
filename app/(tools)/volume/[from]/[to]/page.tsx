@@ -25,7 +25,6 @@ export async function generateMetadata({
   const { from, to } = params
   const originalMetric = getMetricFromSlug(from, ConversionMetrics)
   const targetMetric = getMetricFromSlug(to, ConversionMetrics)
-  console.log(originalMetric, targetMetric)
 
   if (!originalMetric || !targetMetric) {
     notFound()
@@ -97,7 +96,6 @@ export default async function LiterConversion({
   const { from, to } = params
   const originalMetric = getMetricFromSlug(from, ConversionMetrics)
   const targetMetric = getMetricFromSlug(to, ConversionMetrics)
-  console.log(originalMetric, targetMetric)
 
   if (!originalMetric || !targetMetric) {
     notFound()
