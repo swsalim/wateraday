@@ -18,7 +18,7 @@ export function PageHeader({
     <header className={cn('max-w-5xl', className)}>
       <Balancer
         as={tag}
-        className="font-heading text-4xl tracking-tight text-foreground [word-spacing:4px] md:text-6xl"
+        className="font-heading text-4xl capitalize tracking-tight text-foreground [word-spacing:4px] md:text-6xl"
       >
         {title}
       </Balancer>
