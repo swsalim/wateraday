@@ -1,13 +1,13 @@
-import { ConversionMetricsConfig } from '@/types'
+import { ConversionMetricsConfig, Metric } from '@/types'
 
 import { ConversionFactors, ConversionMetrics } from '@/config/metrics'
 
-export function getMetricNameFromSlug(
+export function getMetricFromSlug(
   slug: string,
-  metrics: ConversionMetricsConfig
-): string | null {
+  metrics: ConversionMetricsConfig = ConversionMetrics
+): Metric | null {
   const matchingItem = metrics.find((item) => item.slug === slug)
-  return matchingItem ? matchingItem.name : null
+  return matchingItem ?? null
 }
 
 export function convertValue(
@@ -41,23 +41,57 @@ export function convertValue(
 export function generateConversionData(startingSlug: string): {
   heading: string
   slug: string
-  data: string[]
+  data: {
+    value: string
+    slug: string
+  }[]
 } {
-  const data: string[] = ConversionMetrics.filter(
+  const data = ConversionMetrics.filter(
     (metric) => metric.slug !== startingSlug
   ) // Exclude the starting metric
     .map((metric) => {
       const convertedValue = convertValue(1, startingSlug, metric.slug)
       if (convertedValue !== null) {
-        return `${convertedValue} ${getMetricNameFromSlug(metric.slug, ConversionMetrics)}`
+        return {
+          value: `${convertedValue} ${getMetricFromSlug(metric.slug, ConversionMetrics)?.name}`,
+          slug: metric.slug,
+        }
       }
-      return ''
+      return null
     })
-    .filter((entry) => entry !== '') // Exclude empty entries in case of null conversions
+    .filter((entry) => entry !== null) as {
+    value: string
+    slug: string
+  }[] // Exclude empty entries in case of null conversions
 
   return {
-    heading: `1 ${getMetricNameFromSlug(startingSlug, ConversionMetrics)}`,
+    heading: `1 ${getMetricFromSlug(startingSlug, ConversionMetrics)?.name}`,
     slug: startingSlug,
     data,
   }
+}
+
+export function generateConversionRange(
+  originalSlug: string,
+  targetSlug: string
+): { from: string; to: string }[] {
+  const result: { from: string; to: string }[] = []
+
+  for (let i = 1; i <= 50; i++) {
+    const convertedValue = convertValue(i, originalSlug, targetSlug)
+    if (convertedValue !== null) {
+      const originalName =
+        ConversionMetrics.find((metric) => metric.slug === originalSlug)
+          ?.name || originalSlug
+      const targetName =
+        ConversionMetrics.find((metric) => metric.slug === targetSlug)?.name ||
+        targetSlug
+      result.push({
+        from: `${i} ${originalName}`,
+        to: `${convertedValue} ${targetName}`,
+      })
+    }
+  }
+
+  return result
 }

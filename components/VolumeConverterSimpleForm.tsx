@@ -28,6 +28,12 @@ import {
   SelectValue,
 } from '@/components/ui/Select'
 
+interface VolumeConverterSimpleFormProps {
+  className?: string
+  fromMetric: string
+  toMetric: string
+}
+
 const volumeConverterFormSchema = z.object({
   amount: z.string(),
   from: z.string(),
@@ -36,15 +42,19 @@ const volumeConverterFormSchema = z.object({
 
 type volumeConverterFormValues = z.infer<typeof volumeConverterFormSchema>
 
-const defaultValues: Partial<volumeConverterFormValues> = {
-  amount: '1',
-  from: 'liter',
-  to: 'us-fluid-ounce',
-}
-
-export function VolumeConverterForm({ className }: { className?: string }) {
+export function VolumeConverterSimpleForm({
+  className,
+  fromMetric,
+  toMetric,
+}: VolumeConverterSimpleFormProps) {
   const [result, setResult] = useState<string | null>('')
   const [showUpdatedResult, setShowUpdatedResult] = useState<boolean>(false)
+
+  const defaultValues: Partial<volumeConverterFormValues> = {
+    amount: '1',
+    from: fromMetric,
+    to: toMetric,
+  }
 
   // 1. Define your form.
   const form = useForm<z.infer<typeof volumeConverterFormSchema>>({
@@ -57,9 +67,9 @@ export function VolumeConverterForm({ className }: { className?: string }) {
   } = form
 
   useEffect(() => {
-    const initialConvertedValue = convertValue(1, 'liter', 'us-fluid-ounce')
+    const initialConvertedValue = convertValue(1, fromMetric, toMetric)
     setResult(initialConvertedValue)
-  }, [])
+  }, [fromMetric, toMetric])
 
   // 2. Define a submit handler.
   function onSubmit(values: z.infer<typeof volumeConverterFormSchema>) {
@@ -69,7 +79,7 @@ export function VolumeConverterForm({ className }: { className?: string }) {
     setShowUpdatedResult(true)
   }
 
-  const watchTo = form.watch('to', 'us-fluid-ounce')
+  const watchTo = form.watch('to', toMetric)
 
   return (
     <Form {...form}>
@@ -88,7 +98,10 @@ export function VolumeConverterForm({ className }: { className?: string }) {
                 name="amount"
                 render={({ field }) => (
                   <FormItem>
-                    <FormLabel>Amount</FormLabel>
+                    <FormLabel>
+                      Amount in{' '}
+                      {getMetricFromSlug(fromMetric, ConversionMetrics)?.name}
+                    </FormLabel>
                     <FormMessage />
                     <FormControl>
                       <Input placeholder="1" {...field} />
@@ -97,82 +110,17 @@ export function VolumeConverterForm({ className }: { className?: string }) {
                 )}
               />
             </div>
-            <FormField
-              control={form.control}
-              name="from"
-              render={({ field }) => (
-                <FormItem>
-                  <FormLabel>
-                    Convert from{' '}
-                    {getMetricFromSlug(field.value, ConversionMetrics)?.name}
-                  </FormLabel>
-                  <Select
-                    onValueChange={field.onChange}
-                    defaultValue={field.value}
-                  >
-                    <FormControl>
-                      <SelectTrigger>
-                        <SelectValue
-                          placeholder="Select a verified email to display"
-                          className="text-gray-500"
-                        />
-                      </SelectTrigger>
-                    </FormControl>
-                    <SelectContent>
-                      {ConversionMetrics.map((metric) => (
-                        <SelectItem key={metric.slug} value={metric.slug}>
-                          {metric.name}
-                        </SelectItem>
-                      ))}
-                    </SelectContent>
-                  </Select>
-
-                  <FormMessage />
-                </FormItem>
-              )}
-            />
-            <FormField
-              control={form.control}
-              name="to"
-              render={({ field }) => (
-                <FormItem>
-                  <FormLabel>
-                    Convert to{' '}
-                    {getMetricFromSlug(field.value, ConversionMetrics)?.name}
-                  </FormLabel>
-                  <Select
-                    onValueChange={field.onChange}
-                    defaultValue={field.value}
-                  >
-                    <FormControl>
-                      <SelectTrigger>
-                        <SelectValue
-                          placeholder="Select a verified email to display"
-                          className="text-gray-500"
-                        />
-                      </SelectTrigger>
-                    </FormControl>
-                    <SelectContent>
-                      {ConversionMetrics.map((metric) => (
-                        <SelectItem key={metric.slug} value={metric.slug}>
-                          {metric.name}
-                        </SelectItem>
-                      ))}
-                    </SelectContent>
-                  </Select>
-
-                  <FormMessage />
-                </FormItem>
-              )}
-            />
             <Button type="submit" size="full">
-              Convert
+              Convert to {getMetricFromSlug(watchTo, ConversionMetrics)?.name}
             </Button>
 
             {(!isDirty || !showUpdatedResult) && (
               <Card className="overflow-hidden bg-gray-200/70">
                 <CardHeader>
-                  <CardTitle>Result in US fluid ounce</CardTitle>
+                  <CardTitle>
+                    Result in{' '}
+                    {getMetricFromSlug(watchTo, ConversionMetrics)?.name}
+                  </CardTitle>
                 </CardHeader>
                 <CardContent className="prose prose-p:mt-0">
                   {result && <p>{result}</p>}

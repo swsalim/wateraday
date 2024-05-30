@@ -84,5 +84,6 @@ export type ConversionMetricsConfig = Metric[]
 export type Metric = {
   name: string
   slug: string
-  symbol?: string
+  abbreviations?: string
+  description?: string
 }

@@ -1,3 +1,6 @@
+import Link from 'next/link'
+import { CalculatorIcon } from 'lucide-react'
+
 import { generateConversionData } from '@/lib/metrics'
 
 export function TableConversion({ slug }: { slug: string }) {
@@ -20,9 +23,17 @@ export function TableConversion({ slug }: { slug: string }) {
             </thead>
             <tbody className="divide-y divide-blue-200 bg-white">
               {tableData.data.map((data) => (
-                <tr key={data}>
+                <tr key={data.value}>
                   <td className="whitespace-nowrap py-4 pl-4 pr-3 text-sm text-gray-900 sm:pl-6">
-                    {data}
+                    <Link
+                      href={`/volume/${tableData.slug}/${data.slug}`}
+                      className="group flex flex-row justify-between"
+                      prefetch={false}
+                    >
+                      {data.value}
+
+                      <CalculatorIcon className="size-5 transition group-hover:rotate-12 group-hover:scale-110" />
+                    </Link>
                   </td>
                 </tr>
               ))}

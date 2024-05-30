@@ -50,7 +50,16 @@ export const metadata: Metadata = {
     description: config.description,
     card: 'summary_large_image',
     creator: siteConfig.creator,
-    images: [siteConfig.openGraph.image],
+    images: [
+      {
+        url: new URL(
+          `${process.env.NEXT_PUBLIC_BASE_URL}/api/og?title=${config.title}`
+        ),
+        width: siteConfig.openGraph.width,
+        height: siteConfig.openGraph.height,
+        alt: siteConfig.openGraph.imageAlt,
+      },
+    ],
   },
 }
 export default async function Home() {
