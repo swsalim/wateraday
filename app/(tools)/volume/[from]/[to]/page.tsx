@@ -1,4 +1,5 @@
 import { notFound } from 'next/navigation'
+import { Metric } from '@/types'
 
 import { ConversionMetrics } from '@/config/metrics'
 import { convertValue, getMetricFromSlug } from '@/lib/metrics'
@@ -76,16 +77,23 @@ export async function generateMetadata({
   }
 }
 
-export async function generateStaticParams({
-  params: { from },
-}: {
-  params: { from: string }
-}) {
-  return ConversionMetrics.filter((metric) => metric.slug !== from).map(
-    (metric) => ({
-      slug: metric.slug,
+export async function generateStaticParams() {
+  const paths: { from: string; to: string }[] = []
+
+  ConversionMetrics.forEach((fromMetric: Metric) => {
+    ConversionMetrics.forEach((toMetric: Metric) => {
+      if (fromMetric.slug !== toMetric.slug) {
+        paths.push({
+          from: fromMetric.slug,
+          to: toMetric.slug,
+        })
+      }
     })
-  )
+  })
+
+  console.log(paths)
+
+  return paths
 }
 
 export default async function LiterConversion({
@@ -96,6 +104,7 @@ export default async function LiterConversion({
   const { from, to } = params
   const originalMetric = getMetricFromSlug(from, ConversionMetrics)
   const targetMetric = getMetricFromSlug(to, ConversionMetrics)
+  // console.log(targetMetric)
 
   if (!originalMetric || !targetMetric) {
     notFound()
@@ -121,7 +130,6 @@ export default async function LiterConversion({
             <div className="mx-auto max-w-2xl lg:mx-0 lg:max-w-none">
               <div className="grid gap-8 lg:grid-cols-5">
                 <div className="lg:col-span-3">
-                  {/* TODO: Pass target slug to form */}
                   <VolumeConverterSimpleForm fromMetric={from} toMetric={to} />
                 </div>
                 <div className="grid gap-4 lg:col-span-2">

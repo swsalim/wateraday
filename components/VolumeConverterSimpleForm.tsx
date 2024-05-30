@@ -42,7 +42,6 @@ const volumeConverterFormSchema = z.object({
 
 type volumeConverterFormValues = z.infer<typeof volumeConverterFormSchema>
 
-// TODO: Add prop slug
 export function VolumeConverterSimpleForm({
   className,
   fromMetric,
@@ -70,7 +69,7 @@ export function VolumeConverterSimpleForm({
   useEffect(() => {
     const initialConvertedValue = convertValue(1, fromMetric, toMetric)
     setResult(initialConvertedValue)
-  }, [])
+  }, [fromMetric, toMetric])
 
   // 2. Define a submit handler.
   function onSubmit(values: z.infer<typeof volumeConverterFormSchema>) {
@@ -111,40 +110,6 @@ export function VolumeConverterSimpleForm({
                 )}
               />
             </div>
-            <FormField
-              control={form.control}
-              name="to"
-              render={({ field }) => (
-                <FormItem>
-                  <FormLabel>
-                    Convert to{' '}
-                    {getMetricFromSlug(field.value, ConversionMetrics)?.name}
-                  </FormLabel>
-                  <Select
-                    onValueChange={field.onChange}
-                    defaultValue={field.value}
-                  >
-                    <FormControl>
-                      <SelectTrigger>
-                        <SelectValue
-                          placeholder="Select a verified email to display"
-                          className="text-gray-500"
-                        />
-                      </SelectTrigger>
-                    </FormControl>
-                    <SelectContent>
-                      {ConversionMetrics.map((metric) => (
-                        <SelectItem key={metric.slug} value={metric.slug}>
-                          {metric.name}
-                        </SelectItem>
-                      ))}
-                    </SelectContent>
-                  </Select>
-
-                  <FormMessage />
-                </FormItem>
-              )}
-            />
             <Button type="submit" size="full">
               Convert to {getMetricFromSlug(watchTo, ConversionMetrics)?.name}
             </Button>

@@ -41,19 +41,28 @@ export function convertValue(
 export function generateConversionData(startingSlug: string): {
   heading: string
   slug: string
-  data: string[]
+  data: {
+    value: string
+    slug: string
+  }[]
 } {
-  const data: string[] = ConversionMetrics.filter(
+  const data = ConversionMetrics.filter(
     (metric) => metric.slug !== startingSlug
   ) // Exclude the starting metric
     .map((metric) => {
       const convertedValue = convertValue(1, startingSlug, metric.slug)
       if (convertedValue !== null) {
-        return `${convertedValue} ${getMetricFromSlug(metric.slug, ConversionMetrics)?.name}`
+        return {
+          value: `${convertedValue} ${getMetricFromSlug(metric.slug, ConversionMetrics)?.name}`,
+          slug: metric.slug,
+        }
       }
-      return ''
+      return null
     })
-    .filter((entry) => entry !== '') // Exclude empty entries in case of null conversions
+    .filter((entry) => entry !== null) as {
+    value: string
+    slug: string
+  }[] // Exclude empty entries in case of null conversions
 
   return {
     heading: `1 ${getMetricFromSlug(startingSlug, ConversionMetrics)?.name}`,
