@@ -20,9 +20,7 @@ export function FunFact({
   return (
     <div
       className={cn(
-        'group relative mx-auto my-8 w-full max-w-xs rounded-xl bg-gray-100 p-6 shadow-xl md:w-56',
-        align === 'left' && 'md:float-start md:mr-14 md:-rotate-12',
-        align === 'right' && 'md:float-end md:ml-14 md:rotate-12'
+        'group relative mx-auto my-8 w-full rounded-xl border border-solid border-gray-200 bg-white p-6 shadow-xl'
       )}
       {...props}
     >
@@ -34,10 +32,15 @@ export function FunFact({
           <Bottle className="size-8 text-background transition group-hover:rotate-12" />
         )}
       </div>
-      <h4 className="mb-2 mt-0 font-heading text-lg capitalize">
-        FUN FACT: {title}
+      <div className="mb-2 inline-block rounded-full bg-blue-400/80 px-3 py-2 text-center text-sm font-semibold uppercase text-blue-50">
+        FUN FACT
+      </div>
+      <h4 className="mb-2 mt-0 font-heading text-lg capitalize md:text-2xl">
+        {title}
       </h4>
-      <p className="mb-0 mt-2 text-sm !text-foreground">{children}</p>
+      <div className="mb-0 mt-4 rounded-sm bg-gray-100 px-6 py-4 text-sm !text-foreground">
+        {children}
+      </div>
     </div>
   )
 }

@@ -10,10 +10,12 @@ import {
   CardTitle,
 } from '@/components/ui/Card'
 import { Meteors } from '@/components/ui/Meteors'
+import { Container } from '@/components/Container'
 import { PageHeader } from '@/components/PageHeader'
-import { Section } from '@/components/Section'
+import { Prose } from '@/components/Prose'
 import { TableConversion } from '@/components/TableConversion'
 import { VolumeConverterForm } from '@/components/VolumeConverterForm'
+import { Wrapper } from '@/components/Wrapper'
 
 const config = {
   title: 'Liquid Volume Converter',
@@ -136,75 +138,93 @@ export default async function Home() {
           </div>
         </div>
       </div>
-      <Section theme="dark">
-        <h2>What is Volume?</h2>
-        <p>
-          Volume is the amount of space consumed by a three-dimensional object,
-          liquid, or gas. Volume is often measured using cubic units of length,
-          such as the cubic inch, or specially named units such as the gallon.
-        </p>
-        <h3>Fluid Volume</h3>
-        <p>
-          Fluid volume is the amount of three-dimensional space consumed by a
-          fluid substance. Fluid volume measurements are commonly used in
-          construction, cooking & baking, science, and math.
-        </p>
-        <p>
-          US customary volume measures include fluid ounces, cups, pints,
-          quarts, and gallons. Internationally, fluid volume is measured using
-          liters, milliliters, imperial gallons, imperial quarts, and imperial
-          pints.
-        </p>
-      </Section>
-      <Section>
-        <h2>How to Calculate Volume </h2>
-        <p>
-          The volume of a regular shaped object can be calculated by measuring
-          the sides of the object and applying a mathematical formula. If you're
-          trying to calculate volume, check out our volume calculator to
-          calculate several shapes. Finding the volume enclosed in an irregular
-          shape can be more difficult. One method for finding the volume of an
-          irregular shape is to use a technique called displacement. Using
-          displacement, an object is placed in a container of liquid and the
-          amount of liquid displaced is measured, this is the volume of the
-          object.
-        </p>
-      </Section>
-      <Section theme="dark">
-        <h2>How to Convert Units of Volume</h2>
-        <p>
-          There are two steps to convert a unit of volume to a different unit.
-          First, you'll need to find the conversion ratio, which is the rate of
-          one unit to another. Check out the{' '}
-          <Link href="#conversion-table">conversion tables</Link> below for a
-          complete list of conversion ratios. Once you've found the conversion
-          ratio, multiply the value you want to convert by the conversion ratio.
-        </p>
-      </Section>
-      <Section>
-        <h2 id="conversion-table">Volume Conversion Table</h2>
-        <div className="grid grid-cols-1 gap-6 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4">
-          <TableConversion slug="us-liquid-gallon" />
-          <TableConversion slug="us-liquid-quart" />
-          <TableConversion slug="us-liquid-pint" />
-          <TableConversion slug="us-legal-cup" />
-          <TableConversion slug="us-fluid-ounce" />
-          <TableConversion slug="us-tablespoon" />
-          <TableConversion slug="us-teaspoon" />
-          <TableConversion slug="cubic-meter" />
-          <TableConversion slug="liter" />
-          <TableConversion slug="milliliter" />
-          <TableConversion slug="imperial-gallon" />
-          <TableConversion slug="imperial-quart" />
-          <TableConversion slug="imperial-pint" />
-          <TableConversion slug="imperial-cup" />
-          <TableConversion slug="imperial-fluid-ounce" />
-          <TableConversion slug="imperial-tablespoon" />
-          <TableConversion slug="imperial-teaspoon" />
-          <TableConversion slug="cubic-foot" />
-          <TableConversion slug="cubic-inch" />
-        </div>
-      </Section>
+      <Wrapper>
+        <Container>
+          <Prose>
+            <h2>What is Volume?</h2>
+            <p>
+              Volume is the amount of space consumed by a three-dimensional
+              object, liquid, or gas. Volume is often measured using cubic units
+              of length, such as the cubic inch, or specially named units such
+              as the gallon.
+            </p>
+            <h3>Fluid Volume</h3>
+            <p>
+              Fluid volume is the amount of three-dimensional space consumed by
+              a fluid substance. Fluid volume measurements are commonly used in
+              construction, cooking & baking, science, and math.
+            </p>
+            <p>
+              US customary volume measures include fluid ounces, cups, pints,
+              quarts, and gallons. Internationally, fluid volume is measured
+              using liters, milliliters, imperial gallons, imperial quarts, and
+              imperial pints.
+            </p>
+          </Prose>
+        </Container>
+      </Wrapper>
+      <Wrapper>
+        <Container>
+          <Prose>
+            <h2>How to Calculate Volume </h2>
+            <p>
+              The volume of a regular shaped object can be calculated by
+              measuring the sides of the object and applying a mathematical
+              formula. If you're trying to calculate volume, check out our
+              volume calculator to calculate several shapes. Finding the volume
+              enclosed in an irregular shape can be more difficult. One method
+              for finding the volume of an irregular shape is to use a technique
+              called displacement. Using displacement, an object is placed in a
+              container of liquid and the amount of liquid displaced is
+              measured, this is the volume of the object.
+            </p>
+          </Prose>
+        </Container>
+      </Wrapper>
+      <Wrapper>
+        <Container>
+          <Prose>
+            <h2>How to Convert Units of Volume</h2>
+            <p>
+              There are two steps to convert a unit of volume to a different
+              unit. First, you'll need to find the conversion ratio, which is
+              the rate of one unit to another. Check out the{' '}
+              <Link href="#conversion-table">conversion tables</Link> below for
+              a complete list of conversion ratios. Once you've found the
+              conversion ratio, multiply the value you want to convert by the
+              conversion ratio.
+            </p>
+          </Prose>
+        </Container>
+      </Wrapper>
+      <Wrapper>
+        <Container>
+          <Prose>
+            <h2 id="conversion-table">Volume Conversion Table</h2>
+            <div className="grid grid-cols-1 gap-6 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4">
+              <TableConversion slug="us-liquid-gallon" />
+              <TableConversion slug="us-liquid-quart" />
+              <TableConversion slug="us-liquid-pint" />
+              <TableConversion slug="us-legal-cup" />
+              <TableConversion slug="us-fluid-ounce" />
+              <TableConversion slug="us-tablespoon" />
+              <TableConversion slug="us-teaspoon" />
+              <TableConversion slug="cubic-meter" />
+              <TableConversion slug="liter" />
+              <TableConversion slug="milliliter" />
+              <TableConversion slug="imperial-gallon" />
+              <TableConversion slug="imperial-quart" />
+              <TableConversion slug="imperial-pint" />
+              <TableConversion slug="imperial-cup" />
+              <TableConversion slug="imperial-fluid-ounce" />
+              <TableConversion slug="imperial-tablespoon" />
+              <TableConversion slug="imperial-teaspoon" />
+              <TableConversion slug="cubic-foot" />
+              <TableConversion slug="cubic-inch" />
+            </div>
+          </Prose>
+        </Container>
+      </Wrapper>
     </>
   )
 }

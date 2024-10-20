@@ -1,3 +1,5 @@
+import { cn } from '@/lib/utils'
+
 const ageGroups = [
   {
     name: '1-3 years',
@@ -31,44 +33,50 @@ const ageGroups = [
 
 export function TableWaterIntake() {
   return (
-    <div className="mt-8 flow-root">
-      <div className="-mx-4 -my-2 overflow-x-auto sm:-mx-6 lg:-mx-8">
-        <div className="inline-block min-w-full py-2 align-middle sm:px-6 lg:px-8">
-          <table className="min-w-full divide-y divide-blue-200">
-            <caption className="sr-only">
+    <div className="inline-block min-w-full overflow-x-auto align-middle">
+      <table className="min-w-full">
+        <caption className="sr-only">Recommended Daily Water Intake</caption>
+        <thead>
+          <tr className="divide-x divide-gray-200">
+            <th
+              scope="col"
+              className="bg-gray-50 py-3.5 pl-4 pr-3 text-start text-base font-semibold text-gray-900"
+            >
+              Age Group
+            </th>
+            <th
+              scope="col"
+              className="bg-gray-50 py-3.5 pl-6 pr-4 text-start text-base font-semibold text-gray-900"
+            >
               Recommended Daily Water Intake
-            </caption>
-            <thead>
-              <tr>
-                <th
-                  scope="col"
-                  className="py-3.5 pl-4 pr-3 text-left text-sm font-semibold text-gray-900 sm:pl-0"
-                >
-                  Age Group
-                </th>
-                <th
-                  scope="col"
-                  className="px-3 py-3.5 text-left text-sm font-semibold text-gray-900"
-                >
-                  Recommended Daily Water Intake
-                </th>
-              </tr>
-            </thead>
-            <tbody className="divide-y divide-blue-200">
-              {ageGroups.map((ageGroup) => (
-                <tr key={ageGroup.name}>
-                  <td className="whitespace-nowrap py-4 pl-4 pr-3 text-base font-semibold text-gray-900 sm:pl-0">
-                    {ageGroup.name}
-                  </td>
-                  <td className="whitespace-nowrap px-3 py-4 text-base text-gray-500">
-                    <span className="block">{ageGroup.value}</span>
-                  </td>
-                </tr>
-              ))}
-            </tbody>
-          </table>
-        </div>
-      </div>
+            </th>
+          </tr>
+        </thead>
+        <tbody className="border-t border-gray-200">
+          {ageGroups.map((ageGroup, index) => (
+            <tr key={ageGroup.name} className="divide-x divide-gray-200">
+              <td
+                className={cn(
+                  'whitespace-nowrap py-4 pl-4 pr-3 text-base text-gray-700',
+                  index === 0 && 'pt-8',
+                  index === ageGroups.length - 1 && 'pb-8'
+                )}
+              >
+                {ageGroup.name}
+              </td>
+              <td
+                className={cn(
+                  'whitespace-nowrap py-4 pl-6 pr-4 text-base text-gray-500',
+                  index === 0 && 'pt-8',
+                  index === ageGroups.length - 1 && 'pb-8'
+                )}
+              >
+                <span className="block">{ageGroup.value}</span>
+              </td>
+            </tr>
+          ))}
+        </tbody>
+      </table>
     </div>
   )
 }

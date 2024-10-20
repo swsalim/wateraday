@@ -11,10 +11,12 @@ import {
   CardTitle,
 } from '@/components/ui/Card'
 import { Meteors } from '@/components/ui/Meteors'
+import { Container } from '@/components/Container'
 import { PageHeader } from '@/components/PageHeader'
-import { Section } from '@/components/Section'
+import { Prose } from '@/components/Prose'
 import { TableConversionRange } from '@/components/TableConversionRange'
 import { VolumeConverterSimpleForm } from '@/components/VolumeConverterSimpleForm'
+import { Wrapper } from '@/components/Wrapper'
 
 export const dynamicParams = false
 
@@ -217,14 +219,18 @@ export default async function LiterConversion({
           </div>
         </div>
       </div>
-      <Section theme="dark">
-        <h2 className="mb-12 mt-0 text-center">
-          {originalMetricName} to {targetMetricName} Conversion Table
-        </h2>
-        <div className="mx-auto mt-6 max-w-2xl">
-          <TableConversionRange originalSlug={from} targetSlug={to} />
-        </div>
-      </Section>
+      <Wrapper>
+        <Container>
+          <Prose>
+            <h2 className="mb-12 mt-0 text-center">
+              {originalMetricName} to {targetMetricName} Conversion Table
+            </h2>
+            <div className="mx-auto mt-6 max-w-2xl">
+              <TableConversionRange originalSlug={from} targetSlug={to} />
+            </div>
+          </Prose>
+        </Container>
+      </Wrapper>
     </>
   )
 }

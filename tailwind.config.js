@@ -99,8 +99,8 @@ const config = {
       },
       DEFAULT: {
         css: {
-          '--tw-prose-body': theme('colors.background'),
-          '--tw-prose-headings': theme('colors.foreground / 1'),
+          '--tw-prose-body': theme('colors.gray.600'),
+          '--tw-prose-headings': theme('colors.foreground'),
           '--tw-prose-links': theme('colors.rose.500'),
           '--tw-prose-links-hover': theme('colors.rose.600'),
           '--tw-prose-underline': theme('colors.rose.500 / 0.2'),
@@ -162,6 +162,10 @@ const config = {
             },
           },
 
+          'p:first-of-type': {
+            marginTop: 0,
+          },
+
           'p:last-of-type': {
             marginBottom: 0,
           },
@@ -172,14 +176,14 @@ const config = {
           },
           h2: {
             fontFamily: theme('fontFamily.heading'),
-            lineHeight: theme('lineHeight.10'),
-            fontSize: theme('fontSize.3xl')[0],
+            lineHeight: theme('lineHeight.9'),
+            fontSize: theme('fontSize.4xl')[0],
             marginTop: theme('spacing.8'),
             marginBottom: theme('spacing.6'),
 
             '@screen md': {
-              lineHeight: theme('lineHeight.10'),
-              fontSize: theme('fontSize.4xl')[0],
+              lineHeight: theme('lineHeight.snug'),
+              fontSize: theme('fontSize.5xl')[0],
               marginTop: theme('spacing.12'),
               marginBottom: theme('spacing.8'),
             },
