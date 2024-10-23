@@ -154,7 +154,7 @@ export default async function LiterConversion({
                   <Card className="overflow-hidden">
                     <CardHeader>
                       <CardTitle className="capitalize">
-                        {originalMetricName}
+                        What is a {originalMetricName}?
                       </CardTitle>
                       {originalMetricAbbreviations && (
                         <CardDescription>
@@ -185,7 +185,7 @@ export default async function LiterConversion({
                   <Card className="overflow-hidden">
                     <CardHeader>
                       <CardTitle className="capitalize">
-                        {targetMetricName}
+                        What is a {targetMetricName}?
                       </CardTitle>
                       {targetMetricAbbreviations && (
                         <CardDescription>

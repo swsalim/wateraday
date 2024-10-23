@@ -103,7 +103,7 @@ export default async function Home() {
                   </Card>
                   <Card className="overflow-hidden">
                     <CardHeader>
-                      <CardTitle>Liters</CardTitle>
+                      <CardTitle>What is a Liter?</CardTitle>
                       <CardDescription>Abbreviation: L</CardDescription>
                     </CardHeader>
                     <CardContent className="prose prose-p:mt-0">
@@ -118,7 +118,7 @@ export default async function Home() {
                   </Card>
                   <Card className="overflow-hidden">
                     <CardHeader>
-                      <CardTitle>Ounces</CardTitle>
+                      <CardTitle>What is an Ounce?</CardTitle>
                       <CardDescription>
                         Common abbreviations: fl oz, oz fl
                       </CardDescription>
