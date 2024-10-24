@@ -9,6 +9,7 @@ import { Container } from '@/components/Container'
 import { FunFact } from '@/components/FunFact'
 import { PageHeader } from '@/components/PageHeader'
 import { Prose } from '@/components/Prose'
+import WebsiteJsonLd from '@/components/StructuredData/WebsiteJsonLd'
 import { TableWaterIntake } from '@/components/TableWaterIntake'
 import { WaterIntakeCalculator } from '@/components/WaterIntakeCalculator'
 import { Wrapper } from '@/components/Wrapper'
@@ -107,6 +108,10 @@ const intoxicationSymptoms = [
 export default async function Home() {
   return (
     <>
+      <WebsiteJsonLd
+        company={siteConfig.siteName}
+        url={process.env.NEXT_PUBLIC_BASE_URL!}
+      />
       <div className="container px-4 md:px-8">
         <div className="my-20">
           <PageHeader
@@ -218,7 +223,7 @@ export default async function Home() {
                 How much water should you drink in a day?
               </Balancer>
             </Prose>
-            <div className="grid grid-cols-1 gap-x-10 gap-y-10 md:grid-cols-2">
+            <div className="grid grid-cols-1 gap-10 md:grid-cols-2">
               <div className="flex items-center">
                 <Panel>
                   <Prose>

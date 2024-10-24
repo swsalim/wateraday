@@ -1,15 +1,18 @@
 import type { Metadata } from 'next'
 
 import { siteConfig } from '@/config/site'
+import { absoluteUrl } from '@/lib/utils'
 import { PageHeader } from '@/components/PageHeader'
 import { Prose } from '@/components/Prose'
+import ArticleJsonLd from '@/components/StructuredData/ArticleJsonLd'
+import WebsiteJsonLd from '@/components/StructuredData/WebsiteJsonLd'
 import { Wrapper } from '@/components/Wrapper'
 
 const config = {
-  title: 'Are You Dizzy and Fatigued? The Telltale Signs Your Body Needs Water',
+  title: 'Everything You Need to Know About Dehydration',
   description:
     "Understand dehydration, its symptoms like thirst, dizziness, dark urine, who's at risk, and prevention tips.",
-  url: '/dehydration',
+  url: absoluteUrl('/dehydration'),
 }
 
 export const metadata: Metadata = {
@@ -47,10 +50,21 @@ export const metadata: Metadata = {
 export default async function Home() {
   return (
     <>
+      <WebsiteJsonLd
+        company={siteConfig.siteName}
+        url={absoluteUrl('/dehydration')}
+      />
+      <ArticleJsonLd
+        description={config.description}
+        title={config.title}
+        cover={absoluteUrl(`/api/og?title=${config.title}`)}
+        publishedAt="2022-04-22"
+        reviewedBy="Admin"
+      />
       <div className="container px-4 md:px-8">
         <div className="my-20">
           <PageHeader
-            title="Are You Dizzy and Fatigued? The Telltale Signs Your Body Needs Water"
+            title="Everything You Need to Know About Dehydration"
             className="mx-auto text-center"
           />
         </div>

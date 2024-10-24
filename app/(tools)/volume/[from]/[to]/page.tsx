@@ -2,7 +2,9 @@ import { notFound } from 'next/navigation'
 import { Metric } from '@/types'
 
 import { ConversionMetrics } from '@/config/metrics'
+import { siteConfig } from '@/config/site'
 import { convertValue, getMetricFromSlug } from '@/lib/metrics'
+import { absoluteUrl } from '@/lib/utils'
 import {
   Card,
   CardContent,
@@ -14,6 +16,8 @@ import { Meteors } from '@/components/ui/Meteors'
 import { Container } from '@/components/Container'
 import { PageHeader } from '@/components/PageHeader'
 import { Prose } from '@/components/Prose'
+import ArticleJsonLd from '@/components/StructuredData/ArticleJsonLd'
+import WebsiteJsonLd from '@/components/StructuredData/WebsiteJsonLd'
 import { TableConversionRange } from '@/components/TableConversionRange'
 import { VolumeConverterSimpleForm } from '@/components/VolumeConverterSimpleForm'
 import { Wrapper } from '@/components/Wrapper'
@@ -38,8 +42,8 @@ export async function generateMetadata({
 
   const config = {
     title: `Convert ${originalMetricName} to ${targetMetricName} in Seconds`,
-    description: `Convert any amount from ${originalMetricName} to ${targetMetricName}`,
-    url: `https://www.wateraday.com/volume/${from}/${to}`,
+    description: `Convert ${originalMetricName} to ${targetMetricName} with the volume conversion calculator, and learn the ${originalMetricName} to ${targetMetricName} formula.`,
+    url: absoluteUrl(`/volume/${from}/${to}`),
   }
 
   return {
@@ -53,8 +57,8 @@ export async function generateMetadata({
           url: new URL(
             `${process.env.NEXT_PUBLIC_BASE_URL}/api/og?title=${config.title}`
           ),
-          width: '1200',
-          height: '630',
+          width: siteConfig.openGraph.width,
+          height: siteConfig.openGraph.height,
           alt: config.title,
         },
       ],
@@ -62,16 +66,9 @@ export async function generateMetadata({
     twitter: {
       title: config.title,
       description: config.description,
-      images: [
-        {
-          url: new URL(
-            `${process.env.NEXT_PUBLIC_BASE_URL}/api/og?title=${config.title}`
-          ),
-          width: '1200',
-          height: '630',
-          alt: config.title,
-        },
-      ],
+      card: 'summary_large_image',
+      creator: siteConfig.creator,
+      images: [siteConfig.openGraph.image],
     },
     alternates: {
       canonical: config.url,
@@ -116,8 +113,25 @@ export default async function LiterConversion({
   const targetMetricDescription = targetMetric?.description
   const targetMetricAbbreviations = targetMetric?.abbreviations
 
+  const config = {
+    title: `Convert ${originalMetricName} to ${targetMetricName} in Seconds`,
+    description: `Convert ${originalMetricName} to ${targetMetricName} with the volume conversion calculator, and learn the ${originalMetricName} to ${targetMetricName} formula.`,
+    url: absoluteUrl(`/volume/${from}/${to}`),
+  }
+
   return (
     <>
+      <WebsiteJsonLd
+        company={siteConfig.siteName}
+        url={absoluteUrl('/dehydration')}
+      />
+      <ArticleJsonLd
+        description={config.description}
+        title={config.title}
+        cover={absoluteUrl(`/api/og?title=${config.title}`)}
+        publishedAt="2022-04-22"
+        reviewedBy="Admin"
+      />
       <div className="container px-4 md:px-8">
         <div className="my-20">
           <PageHeader
@@ -219,6 +233,16 @@ export default async function LiterConversion({
           </div>
         </div>
       </div>
+      {/* <Wrapper>
+        <Container>
+          <Prose className="mx-auto max-w-4xl text-center">
+            <Balancer as="h2" className="mt-0">
+              How to convert {originalMetricName} to {targetMetricName}
+            </Balancer>
+            <p>// TODO add copy</p>
+          </Prose>
+        </Container>
+      </Wrapper> */}
       <Wrapper>
         <Container>
           <Prose>
@@ -231,6 +255,16 @@ export default async function LiterConversion({
           </Prose>
         </Container>
       </Wrapper>
+      {/* <Wrapper>
+        <Container>
+          <Prose className="mx-auto max-w-4xl text-center">
+            <Balancer as="h2" className="mt-0">
+              More {originalMetricName} & {targetMetricName} Conversions
+            </Balancer>
+            <p>// TODO add copy</p>
+          </Prose>
+        </Container>
+      </Wrapper> */}
     </>
   )
 }

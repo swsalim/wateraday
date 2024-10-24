@@ -5,9 +5,11 @@ import Script from 'next/script'
 import { GeistSans } from 'geist/font/sans'
 
 import { siteConfig } from '@/config/site'
-import { cn } from '@/lib/utils'
+import { absoluteUrl, cn } from '@/lib/utils'
 
 import '@/styles/globals.css'
+
+import LogoJsonLd from '@/components/StructuredData/LogoJsonLd'
 
 const fontHeading = localFont({
   src: '../assets/fonts/CalSans-SemiBold.woff2',
@@ -77,6 +79,10 @@ export default function RootLayout({
         <link rel="preconnect" href="//stats.wateraday.com" />
         <link rel="dns-prefetch" href="//stats.wateraday.com" />
         <link rel="dns-prefetch" href="//ik.imagekit.io" />
+        <LogoJsonLd
+          logo={absoluteUrl('/images/logo.png')}
+          url={absoluteUrl('/')}
+        />
         <Script
           id="simple-analytics"
           dangerouslySetInnerHTML={{

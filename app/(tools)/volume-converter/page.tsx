@@ -2,6 +2,7 @@ import type { Metadata } from 'next'
 import Link from 'next/link'
 
 import { siteConfig } from '@/config/site'
+import { absoluteUrl } from '@/lib/utils'
 import {
   Card,
   CardContent,
@@ -13,6 +14,8 @@ import { Meteors } from '@/components/ui/Meteors'
 import { Container } from '@/components/Container'
 import { PageHeader } from '@/components/PageHeader'
 import { Prose } from '@/components/Prose'
+import ArticleJsonLd from '@/components/StructuredData/ArticleJsonLd'
+import WebsiteJsonLd from '@/components/StructuredData/WebsiteJsonLd'
 import { TableConversion } from '@/components/TableConversion'
 import { VolumeConverterForm } from '@/components/VolumeConverterForm'
 import { Wrapper } from '@/components/Wrapper'
@@ -67,6 +70,17 @@ export const metadata: Metadata = {
 export default async function Home() {
   return (
     <>
+      <WebsiteJsonLd
+        company={siteConfig.siteName}
+        url={absoluteUrl('/volume-converter')}
+      />
+      <ArticleJsonLd
+        description={config.description}
+        title={config.title}
+        cover={absoluteUrl(`/api/og?title=${config.title}`)}
+        publishedAt="2022-04-22"
+        reviewedBy="Admin"
+      />
       <div className="container px-4 md:px-8">
         <div className="my-20">
           <PageHeader

@@ -6,7 +6,10 @@ import { Footer } from '@/components/Footer'
 import { MainNav } from '@/components/MainNav'
 
 export const metadata: Metadata = {
-  title: siteConfig.title,
+  title: {
+    default: siteConfig.title,
+    template: `%s · ${siteConfig.siteName}`,
+  },
   description: siteConfig.description,
 }
 
