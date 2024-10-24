@@ -15,7 +15,7 @@ export default function ArticleJsonLd({
   publishedAt: string
   reviewedBy: string
 }) {
-  const image = [...cover].join('')
+  const image = Array.isArray(cover) ? cover.join('') : cover
 
   return (
     <JsonLd id="article-jsonld">
