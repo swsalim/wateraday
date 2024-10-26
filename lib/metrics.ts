@@ -38,6 +38,10 @@ export function convertValue(
   return roundedValue.toString()
 }
 
+export function getConversionFactor(fromSlug: string, toSlug: string): number {
+  return ConversionFactors[fromSlug] / ConversionFactors[toSlug]
+}
+
 export function generateConversionData(startingSlug: string): {
   heading: string
   slug: string

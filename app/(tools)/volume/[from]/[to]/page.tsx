@@ -1,9 +1,14 @@
 import { notFound } from 'next/navigation'
 import { Metric } from '@/types'
+import Balancer from 'react-wrap-balancer'
 
 import { ConversionMetrics } from '@/config/metrics'
 import { siteConfig } from '@/config/site'
-import { convertValue, getMetricFromSlug } from '@/lib/metrics'
+import {
+  convertValue,
+  getConversionFactor,
+  getMetricFromSlug,
+} from '@/lib/metrics'
 import { absoluteUrl } from '@/lib/utils'
 import {
   Card,
@@ -233,29 +238,64 @@ export default async function LiterConversion({
           </div>
         </div>
       </div>
-      {/* <Wrapper>
-        <Container>
-          <Prose className="mx-auto max-w-4xl text-center">
-            <Balancer as="h2" className="mt-0">
-              How to convert {originalMetricName} to {targetMetricName}
-            </Balancer>
-            <p>// TODO add copy</p>
-          </Prose>
-        </Container>
-      </Wrapper> */}
-      <Wrapper>
-        <Container>
-          <Prose>
-            <h2 className="mb-12 mt-0 text-center">
-              {originalMetricName} to {targetMetricName} Conversion Table
-            </h2>
-            <div className="mx-auto mt-6 max-w-2xl">
-              <TableConversionRange originalSlug={from} targetSlug={to} />
-            </div>
-          </Prose>
-        </Container>
-      </Wrapper>
-      {/* <Wrapper>
+      <div className="bg-white">
+        <Wrapper>
+          <Container>
+            <Prose className="mx-auto max-w-4xl text-center">
+              <Balancer as="h2" className="mt-0">
+                How to convert {originalMetricName} to {targetMetricName}
+              </Balancer>
+
+              <p>
+                {originalMetricName}s and {originalMetricName}s are both units
+                used to measure volume. The conversion between these units uses
+                a standard conversion ratio of{' '}
+                {parseFloat(getConversionFactor(from, to).toFixed(4))}{' '}
+                {originalMetricName}s per {originalMetricName}.
+              </p>
+
+              <p>
+                The value of 1 {originalMetricName} equals{' '}
+                {parseFloat(getConversionFactor(from, to).toFixed(4))}{' '}
+                {targetMetricName}s. To convert {originalMetricName}s to{' '}
+                {targetMetricName}s, multiply the {originalMetricName} value by{' '}
+                {parseFloat(getConversionFactor(from, to).toFixed(4))}.
+              </p>
+
+              <div>
+                <h3>Conversion Formula</h3>
+                <div className="rounded-lg bg-gray-100 px-12 py-10 shadow-md">
+                  <code className="bg-transparent">
+                    {targetMetricName}s = {originalMetricName}s ×{' '}
+                    {parseFloat(getConversionFactor(from, to).toFixed(4))}
+                  </code>
+                </div>
+              </div>
+
+              <div>
+                <h3>Example Calculation</h3>
+                <p>
+                  Let's convert 5 {originalMetricName}s to {targetMetricName}s:
+                  5 × {parseFloat(getConversionFactor(from, to).toFixed(4))} ={' '}
+                  {convertValue(5, from, to)} {targetMetricName}s
+                </p>
+              </div>
+            </Prose>
+          </Container>
+        </Wrapper>
+        <Wrapper className="px-0 md:px-6">
+          <Container className="bg-gray-950 px-10 py-12 shadow-xl md:rounded-3xl md:px-16 md:py-20">
+            <Prose theme="dark">
+              <h2 className="mb-12 mt-0 text-center">
+                {originalMetricName} to {targetMetricName} Conversion Table
+              </h2>
+              <div className="mx-auto mt-6 max-w-2xl">
+                <TableConversionRange originalSlug={from} targetSlug={to} />
+              </div>
+            </Prose>
+          </Container>
+        </Wrapper>
+        {/* <Wrapper>
         <Container>
           <Prose className="mx-auto max-w-4xl text-center">
             <Balancer as="h2" className="mt-0">
@@ -265,6 +305,7 @@ export default async function LiterConversion({
           </Prose>
         </Container>
       </Wrapper> */}
+      </div>
     </>
   )
 }

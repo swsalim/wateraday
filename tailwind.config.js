@@ -100,7 +100,7 @@ const config = {
       DEFAULT: {
         css: {
           '--tw-prose-body': theme('colors.gray.600'),
-          '--tw-prose-headings': theme('colors.foreground'),
+          '--tw-prose-headings': theme('colors.gray.900'),
           '--tw-prose-links': theme('colors.rose.500'),
           '--tw-prose-links-hover': theme('colors.rose.600'),
           '--tw-prose-underline': theme('colors.rose.500 / 0.2'),

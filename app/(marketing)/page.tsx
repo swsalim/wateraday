@@ -170,7 +170,7 @@ export default async function Home() {
                     />
                   </svg>
                 </div>
-                <div className="w-2/3 lg:w-3/5">
+                <div className="w-4/5 lg:w-3/5">
                   <FunFact title="Humans are made mostly of water">
                     <p>
                       An adult human body is about <strong>60% water</strong>,
@@ -183,8 +183,8 @@ export default async function Home() {
             </div>
           </Container>
         </Wrapper>
-        <Wrapper>
-          <Container className="rounded-3xl bg-gray-950 px-10 py-12 shadow-xl md:px-16 md:py-20">
+        <Wrapper className="px-0 md:px-6">
+          <Container className="bg-gray-950 px-10 py-12 shadow-xl md:rounded-3xl md:px-16 md:py-20">
             <Container className="flex flex-col gap-y-8 text-center md:max-w-6xl md:gap-y-16">
               <Prose theme="dark">
                 <Balancer as="h2" className="mt-0">
@@ -252,8 +252,8 @@ export default async function Home() {
             </div>
           </Container>
         </Wrapper>
-        <Wrapper>
-          <Container className="rounded-3xl bg-gray-100 px-10 py-12 shadow-xl md:px-16 md:py-20">
+        <Wrapper className="px-0 md:px-6">
+          <Container className="bg-gray-100 px-10 py-12 shadow-xl md:rounded-3xl md:px-16 md:py-20">
             <Container className="flex flex-col gap-y-8 text-center md:max-w-6xl md:gap-y-16">
               <Prose>
                 <Balancer as="h2" className="mt-0">
@@ -296,7 +296,7 @@ export default async function Home() {
         </Wrapper>
         <Wrapper>
           <Container>
-            <div className="grid grid-cols-1 gap-6 md:grid-cols-2 md:gap-16">
+            <div className="grid grid-cols-1 gap-6 px-6 md:grid-cols-2 md:gap-16 md:px-0">
               <FunFact
                 title="Water consumption helps maintain a healthy weight"
                 align="left"
@@ -319,8 +319,8 @@ export default async function Home() {
             </div>
           </Container>
         </Wrapper>
-        <Wrapper>
-          <Container className="rounded-3xl bg-[#030122] px-10 py-12 shadow-xl md:px-16 md:py-20">
+        <Wrapper className="px-0 md:px-6">
+          <Container className="bg-[#030122] px-10 py-12 shadow-xl md:rounded-3xl md:px-16 md:py-20">
             <Container className="flex flex-col gap-y-8 text-center md:max-w-6xl md:gap-y-16">
               <Prose theme="dark" className="mx-auto md:max-w-4xl">
                 <Balancer as="h2" className="mt-0">
@@ -426,7 +426,7 @@ export default async function Home() {
                     />
                   </svg>
                 </div>
-                <div className="w-2/3 lg:w-3/5">
+                <div className="w-4/5 lg:w-3/5">
                   <FunFact title="Humans are made mostly of water">
                     <p>
                       An adult human body is about <strong>60% water</strong>,
@@ -439,8 +439,8 @@ export default async function Home() {
             </div>
           </Container>
         </Wrapper>
-        <Wrapper>
-          <Container className="rounded-3xl bg-gray-100 px-10 py-12 shadow-xl md:px-16 md:py-20">
+        <Wrapper className="px-0 md:px-6">
+          <Container className="bg-gray-100 px-10 py-12 shadow-xl md:rounded-3xl md:px-16 md:py-20">
             <Container className="flex flex-col gap-y-4 text-center md:max-w-6xl md:gap-y-16">
               <div className="grid grid-cols-1 gap-12 md:grid-cols-2 md:gap-8">
                 <Panel className="bg-gray-50 text-start">
@@ -496,8 +496,8 @@ export default async function Home() {
             </Container>
           </Container>
         </Wrapper>
-        <Wrapper>
-          <Container className="rounded-3xl bg-[#030122] px-10 py-12 shadow-xl md:px-16 md:py-20">
+        <Wrapper className="px-0 md:px-6">
+          <Container className="bg-[#030122] px-10 py-12 shadow-xl md:rounded-3xl md:px-16 md:py-20">
             <Container className="flex flex-col gap-y-8 text-start md:max-w-6xl md:gap-y-8">
               <Prose theme="dark" className="md:max-w-4xl">
                 <Balancer as="h2" className="mt-0">
