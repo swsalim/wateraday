@@ -136,6 +136,11 @@ const projects: Project[] = [
     target: '_blank',
   },
   {
+    url: 'https://www.mainan.fun/?ref=wateraday.com',
+    name: 'mainan.fun',
+    target: '_blank',
+  },
+  {
     url: 'https://www.indieworldmap.com/?ref=wateraday.com',
     name: 'Indie World Map',
     target: '_blank',
