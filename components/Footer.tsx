@@ -131,6 +131,11 @@ const projects: Project[] = [
     target: '_blank',
   },
   {
+    url: 'https://www.sudokuunlimited.com/?ref=wateraday.com',
+    name: 'Sudoku Unlimited',
+    target: '_blank',
+  },
+  {
     url: 'https://www.willitraintomorrow.com/?ref=wateraday.com',
     name: 'Will It Rain Tomorrow?',
     target: '_blank',
