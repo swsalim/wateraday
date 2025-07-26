@@ -89,6 +89,69 @@ const footerLinks = [
   { name: 'gallons to pints', href: '/volume/us-liquid-gallon/us-liquid-pint' },
 ]
 
+type Project = {
+  url: string
+  name: string
+  target: '_blank' | '_self'
+}
+const projects: Project[] = [
+  {
+    url: 'https://pfpresizer.com/?ref=wateraday.com',
+    name: 'PFP Resizer',
+    target: '_blank',
+  },
+  {
+    url: 'https://www.flipanimage.xyz/?ref=wateraday.com',
+    name: 'Flip Image',
+    target: '_blank',
+  },
+  {
+    url: 'https://www.cmyktopantone.com/?ref=wateraday.com',
+    name: 'CMYK to Pantone',
+    target: '_blank',
+  },
+  {
+    url: 'https://www.rgbtopantone.com/?ref=wateraday.com',
+    name: 'RGB to Pantone',
+    target: '_blank',
+  },
+  {
+    url: 'https://www.randomnumberapp.com/?ref=wateraday.com',
+    name: 'Random Number App',
+    target: '_blank',
+  },
+  {
+    url: 'https://www.clinicgeek.com/?ref=wateraday.com',
+    name: 'Clinic Geek',
+    target: '_blank',
+  },
+  {
+    url: 'https://www.cottagefortots.com/?ref=wateraday.com',
+    name: 'Cottage For Tots',
+    target: '_blank',
+  },
+  {
+    url: 'https://www.willitraintomorrow.com/?ref=wateraday.com',
+    name: 'Will It Rain Tomorrow?',
+    target: '_blank',
+  },
+  {
+    url: 'https://www.indieworldmap.com/?ref=wateraday.com',
+    name: 'Indie World Map',
+    target: '_blank',
+  },
+  {
+    url: 'https://www.byeindonesia.com/?ref=wateraday.com',
+    name: 'Bye Indonesia',
+    target: '_blank',
+  },
+  {
+    url: 'https://www.dentalclinicclosetome.my/?ref=wateraday.com',
+    name: 'Dental Clinic Malaysia',
+    target: '_blank',
+  },
+]
+
 export function Footer() {
   return (
     <footer className="bg-white" aria-labelledby="footer-heading">
@@ -97,21 +160,44 @@ export function Footer() {
       </h2>
       <div className="bg-[#030122]">
         <div className="mx-auto max-w-7xl px-6 py-10 text-start sm:py-16">
-          <h3 className="mb-4 font-heading text-lg font-semibold text-white sm:mb-6">
+          <h3 className="mb-4 text-center font-heading text-lg font-semibold text-white sm:mb-12 sm:text-2xl">
             Popular Volume Unit Conversions
           </h3>
           <ul
             role="list"
-            className="md:grid-cols- grid grid-cols-2 gap-2 sm:grid-cols-3"
+            className="grid grid-cols-2 gap-4 sm:grid-cols-3 md:grid-cols-4"
           >
             {footerLinks.map((item) => (
               <li key={item.name}>
                 <Link
                   href={item.href}
-                  className="text-sm/6 text-gray-400 hover:text-white"
+                  className="text-base text-gray-300 transition-colors duration-300 hover:text-white"
                 >
                   {item.name}
                 </Link>
+              </li>
+            ))}
+          </ul>
+        </div>
+      </div>
+      <div className="bg-gray-100">
+        <div className="mx-auto max-w-7xl px-6 py-10 text-start sm:py-16">
+          <h3 className="mb-4 text-center font-heading text-lg font-semibold text-gray-900 sm:mb-12 sm:text-2xl">
+            Check out my other projects
+          </h3>
+          <ul
+            role="list"
+            className="grid grid-cols-2 gap-4 sm:grid-cols-3 md:grid-cols-4"
+          >
+            {projects.map((item) => (
+              <li key={item.name}>
+                <a
+                  href={item.url}
+                  className="text-base text-gray-900 transition-colors duration-300 hover:text-gray-600"
+                  target={item.target}
+                >
+                  {item.name}
+                </a>
               </li>
             ))}
           </ul>
