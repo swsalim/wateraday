@@ -136,6 +136,11 @@ const projects: Project[] = [
     target: '_blank',
   },
   {
+    url: 'https://www.keywordgap.com/?ref=wateraday.com',
+    name: 'Keyword Gap',
+    target: '_blank',
+  },
+  {
     url: 'https://www.willitraintomorrow.com/?ref=wateraday.com',
     name: 'Will It Rain Tomorrow?',
     target: '_blank',
