@@ -165,6 +165,11 @@ const projects: Project[] = [
     name: 'Dental Clinic Malaysia',
     target: '_blank',
   },
+  {
+    url: 'https://www.whatismyscreensize.com/?ref=wateraday.com',
+    name: 'What is my screen size?',
+    target: '_blank',
+  },
 ]
 
 export function Footer() {
