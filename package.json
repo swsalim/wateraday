@@ -12,9 +12,6 @@
     "lint": "next lint",
     "postbuild": "next-sitemap --config next-sitemap.config.js"
   },
-  "engines": {
-    "node": "18.x"
-  },
   "dependencies": {
     "@hookform/resolvers": "^3.3.4",
     "@radix-ui/react-label": "^2.0.2",
