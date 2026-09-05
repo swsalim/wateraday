@@ -1,5 +1,8 @@
-const colors = require('tailwindcss/colors')
+import colors from 'tailwindcss/colors'
+import typography from '@tailwindcss/typography'
+import tailwindcssAnimate from 'tailwindcss-animate'
 
+/** @type {import('tailwindcss').Config} */
 const config = {
   content: [
     './pages/**/*.{js,ts,jsx,tsx,mdx}',
@@ -151,12 +154,12 @@ const config = {
             marginTop: theme('spacing.4'),
             marginBottom: theme('spacing.4'),
 
-            '@screen sm': {
+            '@media (min-width: 640px)': {
               marginTop: theme('spacing.4'),
               marginBottom: theme('spacing.4'),
             },
 
-            '@screen md': {
+            '@media (min-width: 768px)': {
               marginTop: theme('spacing.6'),
               marginBottom: theme('spacing.6'),
             },
@@ -181,7 +184,7 @@ const config = {
             marginTop: theme('spacing.8'),
             marginBottom: theme('spacing.6'),
 
-            '@screen md': {
+            '@media (min-width: 768px)': {
               lineHeight: theme('lineHeight.snug'),
               fontSize: theme('fontSize.5xl')[0],
               marginTop: theme('spacing.12'),
@@ -195,7 +198,7 @@ const config = {
             marginTop: theme('spacing.6'),
             marginBottom: theme('spacing.4'),
 
-            '@screen md': {
+            '@media (min-width: 768px)': {
               marginTop: theme('spacing.10'),
               marginBottom: theme('spacing.4'),
             },
@@ -207,7 +210,7 @@ const config = {
             marginTop: theme('spacing.6'),
             marginBottom: theme('spacing.4'),
 
-            '@screen md': {
+            '@media (min-width: 768px)': {
               marginTop: theme('spacing.10'),
               marginBottom: theme('spacing.4'),
             },
@@ -219,7 +222,7 @@ const config = {
             marginTop: theme('spacing.4'),
             marginBottom: theme('spacing.4'),
 
-            '@screen md': {
+            '@media (min-width: 768px)': {
               marginTop: theme('spacing.10'),
               marginBottom: theme('spacing.4'),
             },
@@ -231,7 +234,7 @@ const config = {
             marginTop: theme('spacing.4'),
             marginBottom: theme('spacing.4'),
 
-            '@screen md': {
+            '@media (min-width: 768px)': {
               marginTop: theme('spacing.10'),
               marginBottom: theme('spacing.4'),
             },
@@ -242,7 +245,7 @@ const config = {
           'p + ul, p + ol': {
             marginTop: 0,
 
-            '@screen md': {
+            '@media (min-width: 768px)': {
               marginTop: `-${theme('spacing.2')}`,
             },
           },
@@ -364,7 +367,7 @@ const config = {
             marginBottom: theme('spacing.20'),
             borderTopWidth: '1px',
             borderColor: 'var(--tw-prose-hr)',
-            '@screen lg': {
+            '@media (min-width: 1024px)': {
               marginLeft: `calc(${theme('spacing.12')} * -1)`,
               marginRight: `calc(${theme('spacing.12')} * -1)`,
             },
@@ -424,10 +427,6 @@ const config = {
       },
     }),
   },
-  plugins: [
-    require('tailwindcss-animate'),
-    require('@tailwindcss/aspect-ratio'),
-    require('@tailwindcss/typography'),
-  ],
+  plugins: [tailwindcssAnimate, typography],
 }
 export default config

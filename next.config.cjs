@@ -1,14 +1,11 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
-  experimental: {
-    serverMinification: false,
-  },
   reactStrictMode: true,
   images: {
     dangerouslyAllowSVG: true,
     remotePatterns: [
-      { protocol: 'https', hostname: 'stats.wateraday.com', port: '' },
-      { protocol: 'https', hostname: 'ik.imagekit.io', port: '' },
+      { protocol: 'https', hostname: 'stats.wateraday.com' },
+      { protocol: 'https', hostname: 'ik.imagekit.io' },
     ],
     formats: ['image/avif', 'image/webp'],
   },

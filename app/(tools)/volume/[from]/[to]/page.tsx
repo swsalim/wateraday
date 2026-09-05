@@ -32,9 +32,9 @@ export const dynamicParams = false
 export async function generateMetadata({
   params,
 }: {
-  params: { from: string; to: string }
+  params: Promise<{ from: string; to: string }>
 }) {
-  const { from, to } = params
+  const { from, to } = await params
   const originalMetric = getMetricFromSlug(from, ConversionMetrics)
   const targetMetric = getMetricFromSlug(to, ConversionMetrics)
 
@@ -101,9 +101,9 @@ export async function generateStaticParams() {
 export default async function LiterConversion({
   params,
 }: {
-  params: { from: string; to: string }
+  params: Promise<{ from: string; to: string }>
 }) {
-  const { from, to } = params
+  const { from, to } = await params
   const originalMetric = getMetricFromSlug(from, ConversionMetrics)
   const targetMetric = getMetricFromSlug(to, ConversionMetrics)
 

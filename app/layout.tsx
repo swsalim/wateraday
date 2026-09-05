@@ -1,8 +1,8 @@
 import type { Metadata } from 'next'
+import { Geist } from 'next/font/google'
 import localFont from 'next/font/local'
 import Image from 'next/image'
 import Script from 'next/script'
-import { GeistSans } from 'geist/font/sans'
 
 import { siteConfig } from '@/config/site'
 import { absoluteUrl, cn } from '@/lib/utils'
@@ -10,6 +10,11 @@ import { absoluteUrl, cn } from '@/lib/utils'
 import '@/styles/globals.css'
 
 import LogoJsonLd from '@/components/StructuredData/LogoJsonLd'
+
+const geistSans = Geist({
+  subsets: ['latin'],
+  variable: '--font-geist-sans',
+})
 
 const fontHeading = localFont({
   src: '../assets/fonts/CalSans-SemiBold.woff2',
@@ -72,7 +77,7 @@ export default function RootLayout({
   return (
     <html
       lang="en"
-      className={cn('antialiased', GeistSans.variable, fontHeading.variable)}
+      className={cn('antialiased', geistSans.variable, fontHeading.variable)}
     >
       <head>
         <link rel="preconnect" href="//ik.imagekit.io" />
