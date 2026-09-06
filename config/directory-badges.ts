@@ -99,4 +99,12 @@ export const directoryBadges: DirectoryBadge[] = [
     height: 68,
     rel: 'noopener',
   },
+  {
+    href: 'https://www.tinyshelf.co/?ref=wateraday.com',
+    src: 'https://www.tinyshelf.co/badge/tinyshelf-badge-light-5ca4026a.svg',
+    alt: 'Featured on tinyshelf',
+    width: 216,
+    height: 64,
+    rel: 'noopener',
+  },
 ]
