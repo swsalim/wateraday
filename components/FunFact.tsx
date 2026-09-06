@@ -1,7 +1,7 @@
 import type { ReactNode } from 'react'
 
 import { cn } from '@/lib/utils'
-import { Bottle, Cup } from '@/components/icons'
+import { WaterDrop3D } from '@/components/craft/WaterDrop3D'
 
 interface FunFactProps {
   title: string
@@ -10,37 +10,26 @@ interface FunFactProps {
   icon?: 'cup' | 'bottle'
 }
 
-export function FunFact({
-  title,
-  align = 'right',
-  icon = 'cup',
-  children,
-  ...props
-}: FunFactProps) {
+export function FunFact({ title, children, ...props }: FunFactProps) {
   return (
-    <div
+    <aside
       className={cn(
-        'group relative mx-auto my-8 w-full rounded-xl border border-solid border-gray-200 bg-white p-6 shadow-xl'
+        'my-6 w-full min-w-0 rounded-[var(--radius-panel)] border border-rule bg-surface p-5 md:p-6'
       )}
       {...props}
     >
-      <div className="absolute -left-6 -top-6 rounded-full border-1 border-blue-600 bg-blue-200 p-2 shadow-md md:-left-4 md:-top-4">
-        {icon === 'cup' && (
-          <Cup className="size-8 text-background transition group-hover:-rotate-12" />
-        )}
-        {icon === 'bottle' && (
-          <Bottle className="size-8 text-background transition group-hover:rotate-12" />
-        )}
+      <div className="mb-3 flex items-start justify-between gap-3">
+        <p className="text-base font-semibold text-ocean">
+          Fun fact
+        </p>
+        <WaterDrop3D size={36} animated={false} className="shrink-0 opacity-80" />
       </div>
-      <div className="mb-2 inline-block rounded-full bg-blue-400/80 px-3 py-2 text-center text-sm font-semibold uppercase text-blue-50">
-        FUN FACT
-      </div>
-      <h4 className="mb-2 mt-0 font-heading text-lg capitalize md:text-2xl">
+      <h4 className="mb-2 mt-0 font-heading text-lg font-bold capitalize tracking-tight text-ink md:text-xl">
         {title}
       </h4>
-      <div className="mb-0 mt-4 rounded-sm bg-gray-100 px-6 py-4 text-sm !text-foreground">
+      <div className="text-base leading-relaxed text-ink-2 [&_a]:text-accent [&_a]:underline [&_a]:underline-offset-4 [&_strong]:text-ink">
         {children}
       </div>
-    </div>
+    </aside>
   )
 }

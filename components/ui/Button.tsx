@@ -8,30 +8,29 @@ import { cn } from '@/lib/utils'
 export interface ButtonProps
   extends React.ButtonHTMLAttributes<HTMLButtonElement>,
     VariantProps<typeof buttonVariants> {
-  /** Use the asChild prop to compose Radix's functionality onto alternative element types or your own React components. */
   asChild?: boolean
 }
 
 const buttonVariants = cva(
-  'inline-flex items-center justify-center rounded-md duration-200 ease-in-out',
+  'inline-flex items-center justify-center whitespace-nowrap font-heading font-semibold tracking-tight rounded-[var(--radius-button)] transition-[background-color,border-color,color,opacity,transform,box-shadow] duration-[var(--dur-short)] ease-[var(--ease-out)] focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-focus disabled:pointer-events-none disabled:opacity-50 data-[state=loading]:opacity-70 data-[state=error]:border-red-600 data-[state=error]:text-red-700 data-[state=success]:bg-accent data-[state=success]:text-accent-ink hover:-translate-y-px active:translate-y-0',
   {
     variants: {
       variant: {
         primary:
-          'border border-solid border-transparent bg-blue-500 text-white hover:bg-blue-600 hover:text-white focus:border-blue-700 focus:outline-none active:bg-blue-700',
+          'border border-transparent bg-accent text-accent-ink shadow-[var(--shadow-soft)] hover:shadow-[var(--shadow-lift)] hover:brightness-105',
         secondary:
-          'border border-solid border-gray-300 bg-white text-gray-500 hover:border-gray-700 hover:text-gray-800 focus:border-gray-700 active:border-gray-700 active:bg-gray-50 active:text-gray-800',
+          'border border-rule bg-surface text-ink hover:border-accent/50 hover:bg-paper-2 hover:shadow-[var(--shadow-soft)]',
         outline:
-          'border border-gray-300/50 bg-white text-gray-500 hover:border-gray-300 hover:bg-gray-100 hover:text-gray-700 focus:border-blue-300 active:bg-gray-100 active:text-gray-700',
+          'border border-rule bg-transparent text-ink-2 hover:border-accent/50 hover:bg-paper-2 hover:text-ink',
         ghost:
-          'bg-transparent text-gray-700 hover:bg-gray-100 hover:text-gray-700 border-transparent border-solid border-[1px] focus:border-amber-300 active:bg-amber-100 active:text-amber-700',
+          'border border-transparent bg-transparent text-ink-2 hover:bg-paper-2 hover:text-ink',
         danger:
-          'border border-solid border-transparent bg-red-600 text-white hover:bg-red-800 hover:text-white focus:border-red-800 focus:outline-none active:bg-red-800',
+          'border border-transparent bg-red-600 text-white hover:bg-red-700',
       },
       size: {
-        default: 'px-4 py-2',
-        full: 'w-full px-4 py-2',
-        medium: 'px-8 py-3',
+        default: 'px-5 py-2.5 text-sm',
+        full: 'w-full px-5 py-2.5 text-sm',
+        medium: 'px-8 py-3 text-base',
       },
     },
     defaultVariants: {

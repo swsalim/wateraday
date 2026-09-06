@@ -2,17 +2,20 @@ import { cva, type VariantProps } from 'class-variance-authority'
 
 import { cn } from '@/lib/utils'
 
-const proseVariants = cva('prose prose-h2:capitalize', {
-  variants: {
-    theme: {
-      light: '',
-      dark: 'prose-h2:text-gray-50 prose-h3:text-gray-100 prose-p:text-gray-200 prose-strong:text-gray-50 prose-li:text-gray-200 prose-li:marker:text-gray-50 prose-th:text-gray-50 prose-td:text-gray-100',
+const proseVariants = cva(
+  'prose max-w-none font-sans text-base prose-p:text-base prose-li:text-base prose-headings:font-heading prose-headings:tracking-tight prose-h1:font-bold prose-h2:font-bold prose-h2:capitalize prose-a:text-accent',
+  {
+    variants: {
+      theme: {
+        light: '',
+        dark: 'prose-h1:text-band-ink prose-h2:text-band-ink prose-h3:text-band-ink prose-p:text-band-muted prose-strong:text-band-ink prose-li:text-band-muted prose-li:marker:text-band-ink prose-th:text-band-ink prose-td:text-band-muted',
+      },
     },
-  },
-  defaultVariants: {
-    theme: 'light',
-  },
-})
+    defaultVariants: {
+      theme: 'light',
+    },
+  }
+)
 
 export interface ProseProps
   extends React.HTMLAttributes<HTMLDivElement>,

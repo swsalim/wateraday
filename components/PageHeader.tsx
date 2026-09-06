@@ -15,15 +15,15 @@ export function PageHeader({
   className: string
 }) {
   return (
-    <header className={cn('max-w-5xl', className)}>
+    <header className={cn('max-w-3xl min-w-0', className)}>
       <Balancer
         as={tag}
-        className="font-heading text-4xl capitalize tracking-tight text-foreground [word-spacing:4px] md:text-6xl"
+        className="font-heading text-[length:var(--text-display-s)] font-semibold capitalize tracking-[-0.02em] text-ink [overflow-wrap:anywhere] md:text-[length:var(--text-display)]"
       >
         {title}
       </Balancer>
       {intro && (
-        <p className="mt-6 text-xl font-medium text-gray-500 md:text-2xl">
+        <p className="mt-4 max-w-prose text-lg font-normal text-ink-2 md:text-xl">
           {intro}
         </p>
       )}

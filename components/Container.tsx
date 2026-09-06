@@ -13,7 +13,7 @@ export function Container({
   ...props
 }: ContainerProps) {
   return (
-    <Comp {...props} className={cn('mx-auto my-0 w-full max-w-7xl', className)}>
+    <Comp {...props} className={cn('mx-auto my-0 w-full min-w-0 max-w-7xl', className)}>
       {children}
     </Comp>
   )

@@ -137,12 +137,12 @@ export function WaterIntakeCalculator() {
       <form
         onSubmit={form.handleSubmit(onSubmit)}
         className={cn(
-          'mx-auto space-y-8 overflow-hidden rounded-lg shadow-lg',
+          'mx-auto min-w-0 space-y-8 overflow-hidden border border-rule bg-surface',
           showResult && 'max-w-none',
           !showResult && 'max-w-2xl'
         )}
       >
-        <div className={cn('flex flex-col bg-gray-50 md:flex-row')}>
+        <div className={cn('flex flex-col bg-paper-2/50 md:flex-row')}>
           <div className="w-full space-y-8 p-6">
             <div className="grid grid-cols-2 gap-6">
               <FormField
@@ -158,12 +158,12 @@ export function WaterIntakeCalculator() {
                       className="grid max-w-md grid-cols-2 gap-0 pt-2"
                     >
                       <FormItem>
-                        <FormLabel className="[&:has([data-state=checked])>div>svg]:fill-primary [&:has([data-state=checked])>div>svg]:stroke-foreground [&:has([data-state=checked])>div]:border-blue-600/70 [&:has([data-state=checked])>div]:bg-primary/20">
+                        <FormLabel className="[&:has([data-state=checked])>div>svg]:fill-accent [&:has([data-state=checked])>div>svg]:stroke-ink [&:has([data-state=checked])>div]:border-accent [&:has([data-state=checked])>div]:bg-accent-soft">
                           <FormControl>
                             <RadioGroupItem value="male" className="sr-only" />
                           </FormControl>
-                          <div className="cursor-pointer items-center rounded-md rounded-r-none border-1 border-gray-800/40 bg-gray-50/20 p-4 transition hover:border-blue-600/55 hover:bg-gray-50/55">
-                            <Male className="mx-auto size-10 fill-background stroke-foreground/50 transition" />
+                          <div className="cursor-pointer items-center rounded-[var(--radius-button)] rounded-r-none border border-rule bg-surface p-4 transition-colors hover:border-accent hover:bg-paper-2">
+                            <Male className="mx-auto size-10 fill-paper stroke-ink-2 transition" />
                           </div>
                           <span className="block w-full p-2 text-center font-normal">
                             Male
@@ -171,15 +171,15 @@ export function WaterIntakeCalculator() {
                         </FormLabel>
                       </FormItem>
                       <FormItem>
-                        <FormLabel className="[&:has([data-state=checked])>div>svg]:fill-primary [&:has([data-state=checked])>div>svg]:stroke-foreground [&:has([data-state=checked])>div]:border-blue-600/70 [&:has([data-state=checked])>div]:bg-primary/20">
+                        <FormLabel className="[&:has([data-state=checked])>div>svg]:fill-accent [&:has([data-state=checked])>div>svg]:stroke-ink [&:has([data-state=checked])>div]:border-accent [&:has([data-state=checked])>div]:bg-accent-soft">
                           <FormControl>
                             <RadioGroupItem
                               value="female"
                               className="sr-only"
                             />
                           </FormControl>
-                          <div className="cursor-pointer items-center rounded-md rounded-l-none border-1 border-gray-800/40 bg-gray-50/20 p-4 transition hover:border-blue-600/55 hover:bg-gray-50/55">
-                            <Female className="mx-auto size-10 fill-background stroke-foreground/50 transition" />
+                          <div className="cursor-pointer items-center rounded-[var(--radius-button)] rounded-l-none border border-rule bg-surface p-4 transition-colors hover:border-accent hover:bg-paper-2">
+                            <Female className="mx-auto size-10 fill-paper stroke-ink-2 transition" />
                           </div>
                           <span className="block w-full p-2 text-center font-normal">
                             Female
@@ -202,7 +202,7 @@ export function WaterIntakeCalculator() {
                         <span className="mr-2 inline font-heading text-5xl">
                           {field.value}
                         </span>
-                        <span className="inline text-base font-medium uppercase text-gray-500">
+                        <span className="inline text-base font-medium uppercase text-ink-3">
                           years
                         </span>
                       </div>
@@ -233,7 +233,7 @@ export function WaterIntakeCalculator() {
                         <span className="mr-2 inline font-heading text-5xl">
                           {field.value}
                         </span>
-                        <span className="inline text-base font-medium uppercase text-gray-500">
+                        <span className="inline text-base font-medium uppercase text-ink-3">
                           kg
                         </span>
                       </div>
@@ -262,7 +262,7 @@ export function WaterIntakeCalculator() {
                         <span className="mr-2 inline font-heading text-5xl">
                           {field.value}
                         </span>
-                        <span className="inline text-base font-medium uppercase text-gray-500">
+                        <span className="inline text-base font-medium uppercase text-ink-3">
                           cm
                         </span>
                       </div>
@@ -313,13 +313,13 @@ export function WaterIntakeCalculator() {
               )}
             />
             <Button type="submit" size="full">
-              Submit
+              Calculate intake
             </Button>
           </div>
           <motion.div
             className={cn(
-              'relative',
-              showResult && 'grid place-content-center bg-background/25',
+              'relative min-w-0',
+              showResult && 'grid place-content-center bg-accent-soft/40',
               !showResult && 'hidden'
             )}
           >
@@ -351,7 +351,7 @@ export function WaterIntakeCalculator() {
               {curtains.map((curtain, index) => (
                 <motion.div
                   variants={item}
-                  className="h-full w-1/12 bg-white"
+                  className="h-full w-1/12 bg-surface"
                   key={`curtain-${index}`}
                   onAnimationComplete={
                     index === curtains.length - 1

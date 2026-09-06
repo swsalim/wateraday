@@ -1,0 +1,9 @@
+{
+  "scannedAt": "2026-09-05",
+  "fonts": "Gabarito (next/font/google) — replaced Geist + Cal Sans",
+  "palette": "tokens.css OKLCH cyan (~220–230°) + legacy HSL bridges",
+  "motion": "framer-motion (calculator, nav)",
+  "spacing": "4pt named scale in tokens.css",
+  "framework": "Next.js 16 + Tailwind 4 + vinext",
+  "designSystem": "design.md"
+}

@@ -7,7 +7,7 @@ Disallow: /*_ssgManifest.js$
 Disallow: /*.js$
 
 # Host
-Host: https://www.wateraday.com/
+Host: https://wateraday.com/
 
 # Sitemaps
-Sitemap: https://www.wateraday.com/sitemap.xml
+Sitemap: https://wateraday.com/sitemap.xml

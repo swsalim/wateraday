@@ -1,3 +1,4 @@
+/* Hallmark · genre: editorial · macrostructure: Workbench · design-system: design.md · designed-as-app */
 import { notFound } from 'next/navigation'
 import { Metric } from '@/types'
 import Balancer from 'react-wrap-balancer'
@@ -17,8 +18,9 @@ import {
   CardHeader,
   CardTitle,
 } from '@/components/ui/Card'
-import { Meteors } from '@/components/ui/Meteors'
 import { Container } from '@/components/Container'
+import { WaterDrop3D } from '@/components/craft/WaterDrop3D'
+import { WaveField } from '@/components/craft/WaveField'
 import { PageHeader } from '@/components/PageHeader'
 import { Prose } from '@/components/Prose'
 import ArticleJsonLd from '@/components/StructuredData/ArticleJsonLd'
@@ -128,7 +130,7 @@ export default async function LiterConversion({
     <>
       <WebsiteJsonLd
         company={siteConfig.siteName}
-        url={absoluteUrl('/dehydration')}
+        url={absoluteUrl(`/volume/${from}/${to}`)}
       />
       <ArticleJsonLd
         description={config.description}
@@ -137,111 +139,111 @@ export default async function LiterConversion({
         publishedAt="2022-04-22"
         reviewedBy="Admin"
       />
-      <div className="container px-4 md:px-8">
-        <div className="my-20">
+      <div className="relative overflow-hidden border-b border-rule bg-linear-to-b from-accent-soft/50 via-paper to-paper">
+        <WaveField className="bottom-0 h-20 md:h-28" />
+        <div className="relative mx-auto max-w-7xl px-6 py-12 md:px-8 md:py-16">
+          <div className="mb-3 flex items-center gap-3">
+            <p className="font-heading text-sm font-semibold tracking-tight text-accent">
+              Volume tools
+            </p>
+            <WaterDrop3D size={28} animated={false} />
+          </div>
           <PageHeader
             title={`Convert ${originalMetricName} to ${targetMetricName}`}
             intro={`Easily convert volume from ${originalMetricName} to ${targetMetricName} in seconds`}
-            className="mx-auto text-center"
+            className="text-left"
           />
-          <div className="mx-auto my-0 mt-12 w-full max-w-7xl px-6 lg:px-8">
-            <div className="mx-auto max-w-2xl lg:mx-0 lg:max-w-none">
-              <div className="grid gap-8 lg:grid-cols-5">
-                <div className="lg:col-span-3">
-                  <VolumeConverterSimpleForm fromMetric={from} toMetric={to} />
-                </div>
-                <div className="grid gap-4 lg:col-span-2">
-                  <Card className="overflow-hidden">
-                    <CardHeader>
-                      <CardTitle className="capitalize">
-                        How Many {targetMetricName} Are in a{' '}
-                        {originalMetricName}?
-                      </CardTitle>
+          <div className="mt-10 w-full min-w-0">
+            <div className="grid gap-8 lg:grid-cols-5">
+              <div className="min-w-0 lg:col-span-3">
+                <VolumeConverterSimpleForm fromMetric={from} toMetric={to} />
+              </div>
+              <div className="grid min-w-0 gap-4 lg:col-span-2">
+                <Card>
+                  <CardHeader>
+                    <CardTitle className="capitalize">
+                      How Many {targetMetricName} Are in a {originalMetricName}?
+                    </CardTitle>
+                    <CardDescription>
+                      Multiply the volume by {convertValue(1, from, to)}
+                    </CardDescription>
+                  </CardHeader>
+                  <CardContent className="prose prose-p:mt-0">
+                    <p>
+                      1 {originalMetricName} ≈ {convertValue(1, from, to)}{' '}
+                      {targetMetricName}
+                    </p>
+                  </CardContent>
+                </Card>
+                <Card>
+                  <CardHeader>
+                    <CardTitle className="capitalize">
+                      What is a {originalMetricName}?
+                    </CardTitle>
+                    {originalMetricAbbreviations && (
                       <CardDescription>
-                        Multiply the volume by {convertValue(1, from, to)}
+                        {originalMetricAbbreviations.split(', ').length > 1
+                          ? 'Common Abbreviations: '
+                          : 'Abbreviation: '}
+                        <span
+                          className="my-0"
+                          dangerouslySetInnerHTML={{
+                            __html: originalMetricAbbreviations,
+                          }}
+                        ></span>
                       </CardDescription>
-                    </CardHeader>
-                    <CardContent className="prose prose-p:mt-0">
-                      <p>
-                        1 {originalMetricName} ≈ {convertValue(1, from, to)}{' '}
-                        {targetMetricName}
-                      </p>
-
-                      <Meteors number={20} />
-                    </CardContent>
-                  </Card>
-                  <Card className="overflow-hidden">
-                    <CardHeader>
-                      <CardTitle className="capitalize">
-                        What is a {originalMetricName}?
-                      </CardTitle>
-                      {originalMetricAbbreviations && (
-                        <CardDescription>
-                          {originalMetricAbbreviations.split(', ').length > 1
-                            ? 'Common Abbreviations: '
-                            : 'Abbreviation: '}
-                          <span
-                            className="my-0"
-                            dangerouslySetInnerHTML={{
-                              __html: originalMetricAbbreviations,
-                            }}
-                          ></span>
-                        </CardDescription>
-                      )}
-                    </CardHeader>
-                    <CardContent className="prose prose-p:mt-0">
-                      {originalMetricDescription && (
-                        <div
+                    )}
+                  </CardHeader>
+                  <CardContent className="prose prose-p:mt-0">
+                    {originalMetricDescription && (
+                      <div
+                        className="my-0"
+                        dangerouslySetInnerHTML={{
+                          __html: originalMetricDescription,
+                        }}
+                      ></div>
+                    )}
+                  </CardContent>
+                </Card>
+                <Card>
+                  <CardHeader>
+                    <CardTitle className="capitalize">
+                      What is a {targetMetricName}?
+                    </CardTitle>
+                    {targetMetricAbbreviations && (
+                      <CardDescription>
+                        {targetMetricAbbreviations.split(', ').length > 1
+                          ? 'Common Abbreviations: '
+                          : 'Abbreviation: '}
+                        <span
                           className="my-0"
                           dangerouslySetInnerHTML={{
-                            __html: originalMetricDescription,
+                            __html: targetMetricAbbreviations,
                           }}
-                        ></div>
-                      )}
-                      <Meteors number={10} />
-                    </CardContent>
-                  </Card>
-                  <Card className="overflow-hidden">
-                    <CardHeader>
-                      <CardTitle className="capitalize">
-                        What is a {targetMetricName}?
-                      </CardTitle>
-                      {targetMetricAbbreviations && (
-                        <CardDescription>
-                          {targetMetricAbbreviations.split(', ').length > 1
-                            ? 'Common Abbreviations: '
-                            : 'Abbreviation: '}
-                          <span
-                            className="my-0"
-                            dangerouslySetInnerHTML={{
-                              __html: targetMetricAbbreviations,
-                            }}
-                          ></span>
-                        </CardDescription>
-                      )}
-                    </CardHeader>
-                    <CardContent className="prose prose-p:mt-0">
-                      {targetMetricDescription && (
-                        <div
-                          className="my-0"
-                          dangerouslySetInnerHTML={{
-                            __html: targetMetricDescription,
-                          }}
-                        ></div>
-                      )}
-                      <Meteors number={30} />
-                    </CardContent>
-                  </Card>
-                </div>
+                        ></span>
+                      </CardDescription>
+                    )}
+                  </CardHeader>
+                  <CardContent className="prose prose-p:mt-0">
+                    {targetMetricDescription && (
+                      <div
+                        className="my-0"
+                        dangerouslySetInnerHTML={{
+                          __html: targetMetricDescription,
+                        }}
+                      ></div>
+                    )}
+                  </CardContent>
+                </Card>
               </div>
             </div>
           </div>
         </div>
       </div>
-      <div className="bg-white">
+      <div className="bg-surface">
         <Wrapper>
           <Container>
-            <Prose className="mx-auto max-w-4xl text-center">
+            <Prose className="mx-auto max-w-3xl">
               <Balancer as="h2" className="mt-0">
                 How to convert {originalMetricName} to {targetMetricName}
               </Balancer>
@@ -264,8 +266,8 @@ export default async function LiterConversion({
 
               <div>
                 <h3>Conversion Formula</h3>
-                <div className="rounded-lg bg-gray-100 px-12 py-10 shadow-md">
-                  <code className="bg-transparent">
+                <div className="border border-rule bg-paper-2 px-6 py-8 md:px-12">
+                  <code className="bg-transparent text-ink">
                     {targetMetricName}s = {originalMetricName}s ×{' '}
                     {parseFloat(getConversionFactor(from, to).toFixed(4))}
                   </code>
@@ -275,36 +277,27 @@ export default async function LiterConversion({
               <div>
                 <h3>Example Calculation</h3>
                 <p>
-                  Let's convert 5 {originalMetricName}s to {targetMetricName}s:
-                  5 × {parseFloat(getConversionFactor(from, to).toFixed(4))} ={' '}
+                  Let&apos;s convert 5 {originalMetricName}s to{' '}
+                  {targetMetricName}s: 5 ×{' '}
+                  {parseFloat(getConversionFactor(from, to).toFixed(4))} ={' '}
                   {convertValue(5, from, to)} {targetMetricName}s
                 </p>
               </div>
             </Prose>
           </Container>
         </Wrapper>
-        <Wrapper className="px-0 md:px-6">
-          <Container className="bg-gray-950 px-10 py-12 shadow-xl md:rounded-3xl md:px-16 md:py-20">
+        <Wrapper className="border-t border-rule bg-band">
+          <Container>
             <Prose theme="dark">
-              <h2 className="mb-12 mt-0 text-center">
+              <h2 className="mb-8 mt-0">
                 {originalMetricName} to {targetMetricName} Conversion Table
               </h2>
-              <div className="mx-auto mt-6 max-w-2xl">
+              <div className="mx-auto mt-6 max-w-2xl min-w-0 overflow-x-auto">
                 <TableConversionRange originalSlug={from} targetSlug={to} />
               </div>
             </Prose>
           </Container>
         </Wrapper>
-        {/* <Wrapper>
-        <Container>
-          <Prose className="mx-auto max-w-4xl text-center">
-            <Balancer as="h2" className="mt-0">
-              More {originalMetricName} & {targetMetricName} Conversions
-            </Balancer>
-            <p>// TODO add copy</p>
-          </Prose>
-        </Container>
-      </Wrapper> */}
       </div>
     </>
   )

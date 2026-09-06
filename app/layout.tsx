@@ -1,6 +1,5 @@
 import type { Metadata } from 'next'
-import { Geist } from 'next/font/google'
-import localFont from 'next/font/local'
+import { Figtree, Gabarito } from 'next/font/google'
 import Image from 'next/image'
 import Script from 'next/script'
 
@@ -11,14 +10,18 @@ import '@/styles/globals.css'
 
 import LogoJsonLd from '@/components/StructuredData/LogoJsonLd'
 
-const geistSans = Geist({
+const gabarito = Gabarito({
   subsets: ['latin'],
-  variable: '--font-geist-sans',
+  weight: ['400', '500', '600', '700'],
+  variable: '--font-gabarito',
+  display: 'swap',
 })
 
-const fontHeading = localFont({
-  src: '../assets/fonts/CalSans-SemiBold.woff2',
-  variable: '--font-heading',
+const figtree = Figtree({
+  subsets: ['latin'],
+  weight: ['400', '500', '600', '700'],
+  variable: '--font-figtree',
+  display: 'swap',
 })
 
 export const metadata: Metadata = {
@@ -77,12 +80,20 @@ export default function RootLayout({
   return (
     <html
       lang="en"
-      className={cn('antialiased', geistSans.variable, fontHeading.variable)}
+      className={cn(
+        'antialiased',
+        gabarito.variable,
+        figtree.variable
+      )}
+      suppressHydrationWarning
     >
       <head>
+        <script
+          dangerouslySetInnerHTML={{
+            __html: `(function(){try{var t=localStorage.getItem('theme');var d=document.documentElement;d.classList.remove('dark');if(t==='dark'){d.classList.add('dark');d.setAttribute('data-theme','dark')}else if(t==='light'){d.setAttribute('data-theme','light')}else{d.removeAttribute('data-theme');if(window.matchMedia('(prefers-color-scheme: dark)').matches)d.classList.add('dark')}}catch(e){}})();`,
+          }}
+        />
         <link rel="preconnect" href="//ik.imagekit.io" />
-        <link rel="preconnect" href="//stats.wateraday.com" />
-        <link rel="dns-prefetch" href="//stats.wateraday.com" />
         <link rel="dns-prefetch" href="//ik.imagekit.io" />
         <LogoJsonLd
           logo={absoluteUrl('/images/logo.png')}
@@ -99,14 +110,20 @@ export default function RootLayout({
           data-token="c2fbac7b-0b09-48f0-b925-7a5a61de2a3b"
           async
         />
+        <Script
+          src="https://cdn.seline.com/seline.js"
+          data-token="dcf6d3916400d19"
+          async
+        />
       </head>
       <body
-        className="flex min-h-screen flex-col bg-background/55 font-sans"
+        className={cn(
+          figtree.className,
+          'flex min-h-screen flex-col bg-mist font-sans text-ink dark:bg-paper'
+        )}
         suppressHydrationWarning
       >
         {children}
-        <script async src="https://stats.wateraday.com/latest.js"></script>
-        <script async src="https://stats.wateraday.com/auto-events.js"></script>
         <noscript>
           <Image
             src="https://stats.wateraday.com/noscript.gif?collect-dnt=true"

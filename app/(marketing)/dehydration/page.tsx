@@ -1,3 +1,4 @@
+/* Hallmark · genre: editorial · macrostructure: Long Document · design-system: design.md · designed-as-app */
 import type { Metadata } from 'next'
 
 import { siteConfig } from '@/config/site'
@@ -61,16 +62,15 @@ export default async function Home() {
         publishedAt="2022-04-22"
         reviewedBy="Admin"
       />
-      <div className="container px-4 md:px-8">
-        <div className="my-20">
+      <div className="mx-auto max-w-3xl px-6 py-12 md:px-8 md:py-16">
           <PageHeader
             title="Everything You Need to Know About Dehydration"
-            className="mx-auto text-center"
+            className="text-left"
           />
         </div>
 
-        <Wrapper>
-          <Prose>
+        <Wrapper className="pt-0">
+          <Prose className="mx-auto max-w-[65ch]">
             <h2>What is Dehydration?</h2>
             <p>
               Dehydration occurs when the body loses more fluid than it takes
@@ -458,7 +458,6 @@ export default async function Home() {
             </p>
           </Prose>
         </Wrapper>
-      </div>
     </>
   )
 }

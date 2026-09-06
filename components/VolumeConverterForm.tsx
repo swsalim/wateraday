@@ -19,7 +19,6 @@ import {
   FormMessage,
 } from '@/components/ui/Form'
 import { Input } from '@/components/ui/Input'
-import { Meteors } from '@/components/ui/Meteors'
 import {
   Select,
   SelectContent,
@@ -76,11 +75,11 @@ export function VolumeConverterForm({ className }: { className?: string }) {
       <form
         onSubmit={form.handleSubmit(onSubmit)}
         className={cn(
-          'space-y-8 overflow-hidden rounded-lg shadow-lg',
+          'min-w-0 space-y-8 overflow-hidden border border-rule bg-surface',
           className
         )}
       >
-        <div className={cn('flex flex-col bg-gray-50 md:flex-row')}>
+        <div className={cn('flex flex-col bg-paper-2/50 md:flex-row')}>
           <div className="w-full space-y-8 p-6">
             <div className="grid grid-cols-2 gap-6">
               <FormField
@@ -170,19 +169,18 @@ export function VolumeConverterForm({ className }: { className?: string }) {
             </Button>
 
             {(!isDirty || !showUpdatedResult) && (
-              <Card className="overflow-hidden bg-gray-200/70">
+              <Card className="overflow-hidden bg-accent-soft/50">
                 <CardHeader>
                   <CardTitle>Result in US fluid ounce</CardTitle>
                 </CardHeader>
                 <CardContent className="prose prose-p:mt-0">
                   {result && <p>{result}</p>}
-                  <Meteors number={20} />
                 </CardContent>
               </Card>
             )}
 
             {isDirty && showUpdatedResult && (
-              <Card className="overflow-hidden bg-gray-200/70">
+              <Card className="overflow-hidden bg-accent-soft/50">
                 <CardHeader>
                   <CardTitle>
                     Result in{' '}
@@ -191,7 +189,6 @@ export function VolumeConverterForm({ className }: { className?: string }) {
                 </CardHeader>
                 <CardContent className="prose prose-p:mt-0">
                   {result && <p>{result}</p>}
-                  <Meteors number={20} />
                 </CardContent>
               </Card>
             )}

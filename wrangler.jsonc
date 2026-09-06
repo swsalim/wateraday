@@ -23,7 +23,7 @@
     "binding": "IMAGES"
   },
   "vars": {
-    "NEXT_PUBLIC_BASE_URL": "https://www.wateraday.com",
+    "NEXT_PUBLIC_BASE_URL": "https://wateraday.com",
     "NEXT_PUBLIC_IMAGEKIT_ID": "yuurrific/Wateraday"
   },
   "routes": [

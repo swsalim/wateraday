@@ -13,14 +13,14 @@ export const metadata: Metadata = {
   description: siteConfig.description,
 }
 
-interface MarketingLayoutProps {
+interface ToolsLayoutProps {
   children: React.ReactNode
 }
 
-export default function MarketingLayout({ children }: MarketingLayoutProps) {
+export default function ToolsLayout({ children }: ToolsLayoutProps) {
   return (
     <>
-      <header className="sticky top-0 z-40 border-b-[1px] border-b-gray-300/80 bg-gray-50/50 px-4 backdrop-blur backdrop-saturate-150 md:px-8">
+      <header className="sticky top-0 z-40 border-b border-rule bg-mist/90 px-4 backdrop-blur-md dark:bg-paper/90 md:px-8">
         <MainNav items={marketingConfig.mainNav} />
       </header>
       <main className="flex flex-1 flex-col pt-4 md:pt-8">{children}</main>
